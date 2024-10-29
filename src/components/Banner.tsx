@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 export const Banner = () => {
     const [loopNum, setLoopNum] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
-    const toRotate = ["Backend Dev", "Automation Engine", "FullStack Dev"]
+    const toRotate = ["Backend Dev", "Automation Engine", "FullStack Dev"];
     const [text, setText] = useState('');
     const [delta, setDelta] = useState(300 - Math.random() * 100);
     const period = 2000;
@@ -14,19 +14,21 @@ export const Banner = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             tick();
-        }, delta)
+        }, delta);
 
-        return () => { clearInterval(timer)};
-    }, [text]);
+        return () => clearInterval(timer);
+    }, [text, delta, isDeleting]);
 
     const tick = () => {
-        let i = loopNum % toRotate.length;
-        let fullText = toRotate[i];
-        let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1)
+        const i = loopNum % toRotate.length;
+        const fullText = toRotate[i];
+        const updatedText = isDeleting
+            ? fullText.substring(0, text.length - 1)
+            : fullText.substring(0, text.length + 1);
         setText(updatedText);
 
         if (isDeleting) {
-            setDelta((prevDelta: number) => prevDelta / 2)
+            setDelta(prevDelta => prevDelta / 2);
         }
 
         if (!isDeleting && updatedText === fullText) {
@@ -34,10 +36,10 @@ export const Banner = () => {
             setDelta(period);
         } else if (isDeleting && updatedText === '') {
             setIsDeleting(false);
-            setLoopNum(loopNum + 1);
+            setLoopNum(prevLoopNum => prevLoopNum + 1);
             setDelta(500);
         }
-    }
+    };
 
     return (
         <section className="banner" id="home">
@@ -45,10 +47,10 @@ export const Banner = () => {
                 <Row className="align-items-center">
                     <Col xs={12} md={6} xl={7}>
                         <span className="tagline">Welcome to my Portfolio</span>
-                        <h1>{`Hi! I'm Lucas Gomes`} <span className="wrap">{text}</span> </h1>
+                        <h1>{`Hi! I'm Lucas Gomes `} <span className="wrap">{text}</span></h1>
                         <p>Hello, my name is Lucas Gomes, it's a pleasure to meet you! 
 
-                        I'm a curious and dedicated Back-end developer committed to continuous learning. I have a proactive spirit that seeks effective solutions and new operational perspectives for the team. With experience in Python, Golang, Java, HTML, CSS, JavaScript, among other languages, I deliver promising projects in the job market.
+                        I'm a curious and dedicated Back-end developer committed to continuous learning. I have a proactive spirit that seeks effective solutions and new operational perspectives for the team.
 
                         If you're looking for a programmer who can bring technical skills along with a wide range of soft skills and a strong commitment to productivity and innovation, you've just found one.
 
@@ -64,5 +66,5 @@ export const Banner = () => {
                 </Row>
             </Container>
         </section>
-    )
-}
+    );
+};
