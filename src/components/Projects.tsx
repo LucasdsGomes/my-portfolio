@@ -1,47 +1,50 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap"
 import { ProjectCard } from "./ProjectCard"
 import colorSharp2 from "../assets/img/color-sharp2.png"
-import projImg1 from "../assets/img/project-img1.png"
-import projImg2 from "../assets/img/project-img2.png"
-import projImg3 from "../assets/img/project-img3.png"
+import projCalcIp from "../assets/img/calcIp-project.png"
+import projBank from "../assets/img/bank-project.png"
+import projPizzaria from "../assets/img/pizzaria-project.png"
+import projClock from "../assets/img/clock-project.png"
+import projGo from "../assets/img/go-movie.png"
+import projDjango from "../assets/img/django-crm.png"
 import TrackVisibility from "react-on-screen"
 
 export const Projects = () => {
     const projects = [
         {
-            title: "Rails Classroom",
-            description: "Aplicação em Ruby on Rails que simula um ambiente de sala de aula digital, permitindo o gerenciamento de atividades e tarefas.",
-            image: projImg1
-        },
-        {
-            title: "Bank React",
-            description: "Aplicativo bancário construído com React e TypeScript, permitindo criar contas, consultar saldo e realizar transações de forma local.",
-            image: projImg2
-        },
-        {
-            title: "Sistema Pizzaria",
-            description: "Sistema completo de pedidos de pizzaria com CRUD e Handlebars, facilitando a gestão de pedidos, clientes e produtos.",
-            image: projImg3
-        },
-        {
-            title: "Pilantra Discord Bot",
-            description: "Bot interativo para Discord, escrito em Go, projetado para interagir de forma divertida com os usuários.",
-            image: projImg1
-        },
-        {
-            title: "GoMovieCRUD",
-            description: "CRUD de filmes em Go com base de dados futura para Postgres, focado no gerenciamento e organização de registros de filmes.",
-            image: projImg2
+            title: "Clock Project",
+            description: "Aplicação em HTML, CSS e JS que simula um relógio em tempo real que modifica a coloração da página conforme o período atual e totalmente personalizado. ",
+            image: projClock
         },
         {
             title: "Django CRM",
             description: "Sistema CRM desenvolvido em Django para gerenciar clientes, leads e interações, aprimorando processos de relacionamento com clientes.",
-            image: projImg3
-        }
+            image: projDjango
+        },
+        {
+            title: "Sistema Pizzaria",
+            description: "Sistema completo de pedidos de pizzaria com CRUD e Handlebars, facilitando a gestão de pedidos, clientes e produtos.",
+            image: projPizzaria
+        },
+        {
+            title: "Calc Ip",
+            description: "Aplicação em HTML, CSS, JS e Golang que simula uma calculadora de IP prática que coloca em pauta a funcionalidade de sub redes e seu uso, permitindo um amplo gerenciamento.",
+            image: projCalcIp
+        },
+        {
+            title: "GoMovieCRUD",
+            description: "CRUD de filmes em Go com base de dados futura para Postgres, focado no gerenciamento e organização de registros de filmes dentro do Postman.",
+            image: projGo
+        },
+        {
+            title: "Bank React",
+            description: "Aplicativo bancário construído com React e TypeScript, permitindo criar contas, consultar saldo e realizar transações de forma local.",
+            image: projBank
+        },
     ];
     
     return (
-        <section className="projects" id="project">
+        <section className="projects" id="projects">
             <Container>
                 <Row>
                     <Col>
@@ -56,17 +59,19 @@ export const Projects = () => {
                         </TrackVisibility>
                         <Tab.Container id="projects-tabs" defaultActiveKey="first">
                             <Nav variant="pills" className="nav-pills mb-5 mt-4 justify-content-center align-items-center" id="pills-tab">
-                                <Nav.Item>
+                                {/* I'll use this part of the code when i add more projects at my portfolio */}
+
+                                {/* <Nav.Item>
                                     <Nav.Link eventKey="first">Tab One</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
                                     <Nav.Link eventKey="second">Tab Two</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey="third" disabled>
+                                    <Nav.Link eventKey="third">
                                         Tab Three
                                     </Nav.Link>
-                                </Nav.Item>
+                                </Nav.Item> */}
                             </Nav>
                             <Tab.Content>
                                 <Tab.Pane eventKey="first">
