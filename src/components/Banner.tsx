@@ -2,6 +2,8 @@ import { Col, Container, Row } from "react-bootstrap";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import headerImg from "../assets/img/header-img.svg";
 import { useState, useEffect } from "react";
+import 'animate.css';
+import TrackVisibility from 'react-on-screen';
 
 export const Banner = () => {
     const [loopNum, setLoopNum] = useState(0);
@@ -46,19 +48,24 @@ export const Banner = () => {
             <Container>
                 <Row className="align-items-center">
                     <Col xs={12} md={6} xl={7}>
-                        <span className="tagline">Welcome to my Portfolio</span>
-                        <h1>{`Hi! I'm Lucas Gomes `} <span className="wrap">{text}</span></h1>
-                        <p>Hello, my name is Lucas Gomes, it's a pleasure to meet you! 
+                        <TrackVisibility>
+                        {({ isVisible }) => 
+                            <div className={isVisible ? "animated__animated animate__bounce" : ""}>
+                                <span className="tagline">Welcome to my Portfolio</span>
+                                <h1>{`Hi! I'm Lucas Gomes `} <span className="wrap">{text}</span></h1>
+                                <p>Hello, my name is Lucas Gomes, it's a pleasure to meet you! 
 
-                        I'm a curious and dedicated Back-end developer committed to continuous learning. I have a proactive spirit that seeks effective solutions and new operational perspectives for the team.
+                                I'm a curious and dedicated Back-end developer committed to continuous learning. I have a proactive spirit that seeks effective solutions and new operational perspectives for the team.
 
-                        If you're looking for a programmer who can bring technical skills along with a wide range of soft skills and a strong commitment to productivity and innovation, you've just found one.
+                                If you're looking for a programmer who can bring technical skills along with a wide range of soft skills and a strong commitment to productivity and innovation, you've just found one.
 
-                        Let's connect!
+                                Let's connect!
 
-                        Currently pursuing a degree in Technology in Systems Analysis and Development in the Sixth Semester - Evening Period
-                        </p>
-                        <button onClick={() => console.log('connect')}>Let's Connect! <ArrowRightCircle size={25} /></button>
+                                Currently pursuing a degree in Technology in Systems Analysis and Development in the Sixth Semester - Evening Period
+                                </p>
+                                <button onClick={() => console.log('connect')}>Let's Connect! <ArrowRightCircle size={25} /></button>
+                            </div>}
+                        </TrackVisibility>
                     </Col>
                     <Col xs={12} md={6} xl={5}>
                         <img src={headerImg} alt="Header Img" />
