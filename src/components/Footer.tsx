@@ -14,14 +14,14 @@ export const Footer = () => {
                     </Col>
                     <Col sm={6} className="text-center text-sm-end">
                         <div className="social-icon mt-4">
-                            <a href="#">
-                                <img src={navIcon1} alt="" />
+                            <a href="https://www.linkedin.com/in/lucasdsgomes/">
+                                <img src={navIcon1} alt="Linkedin" />
                             </a>
-                            <a href="#">
-                                <img src={navIcon2} alt="" />
+                            <a href="https://github.com/LucasdsGomes">
+                                <img src={navIcon2} alt="GitHub" />
                             </a>
-                            <a href="#">
-                                <img src={navIcon3} alt="" />
+                            <a href="https://www.instagram.com/dlucagm_/">
+                                <img src={navIcon3} alt="Instagram" />
                             </a>
                         </div>
                         <p>LDSG CopyRight 2024. All Right Reserved</p>

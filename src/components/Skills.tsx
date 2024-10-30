@@ -35,26 +35,37 @@ export const Skills = () => {
                             <h2>Skills</h2>
                             <p>I'm a versatile and adaptable developer with a passion for technology and design. I excel in creating engaging and user-friendly interfaces using HTML, CSS, JavaScript, TypeScript and React. With experience in Python (Django), Golang (Gin), among other languages, I deliver promising projects in the job market.</p>
                             <Carousel responsive={responsive} infinite={true} className="skill-slider">
-                                <div className="item">
-                                    <img src={meter1} alt="Image" />
-                                    <h3>Skill 1</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </div>
-                                <div className="item">
-                                    <img src={meter2} alt="Image" />
-                                    <h3>Skill 1</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </div>
-                                <div className="item">
-                                    <img src={meter3} alt="Image" />
-                                    <h3>Skill 1</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </div>
-                                <div className="item">
-                                    <img src={meter1} alt="skill2" />
-                                    <h3>Skill 2</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </div>
+                            <div className="item">
+                                <img src={meter1} alt="HTML & CSS" />
+                                <h3>HTML & CSS</h3>
+                                <p>Experienced in creating attractive and user-friendly interfaces using HTML and CSS, focusing on usability and responsive design.</p>
+                            </div>
+                            <div className="item">
+                                <img src={meter2} alt="JavaScript & TypeScript" />
+                                <h3>JavaScript & TypeScript</h3>
+                                <p>Excellence in developing dynamic and interactive interfaces with JavaScript and TypeScript.</p>
+                            </div>
+                            <div className="item">
+                                <img src={meter3} alt="React" />
+                                <h3>React</h3>
+                                <p>Creating interactive and high-performance applications in React, utilizing hooks and state management for optimal usability.</p>
+                            </div>
+                            <div className="item">
+                                <img src={meter1} alt="Python & Django" />
+                                <h3>Python & Django</h3>
+                                <p>Developing robust and scalable solutions with Python and Django, focusing on efficiency and security.</p>
+                            </div>
+                            <div className="item">
+                                <img src={meter2} alt="GoLang & Gin" />
+                                <h3>GoLang & Gin</h3>
+                                <p>Implementing high-performance backend applications with low latency using GoLang and the Gin framework.</p>
+                            </div>
+                            <div className="item">
+                                <img src={meter2} alt="MySQL & PostgreSQL" />
+                                <h3>MySQL & PostgreSQL</h3>
+                                <p>Expertise in managing databases with MySQL and PostgreSQL, ensuring data integrity and optimal query performance.</p>
+                            </div>
+
                             </Carousel>
                         </div>
                     </Col>
