@@ -4,8 +4,10 @@ import headerImg from "../assets/img/header-img.svg";
 import { useState, useEffect } from "react";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import { useTranslation } from 'react-i18next';
 
 export const Banner = () => {
+    const { t } = useTranslation();
     const [loopNum, setLoopNum] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
     const toRotate = ["Backend Dev", "Bot Dev", "Scrapping Dev"];
@@ -51,19 +53,10 @@ export const Banner = () => {
                         <TrackVisibility>
                         {({ isVisible }) => 
                             <div className={isVisible ? "animated__animated animate__bounce" : ""}>
-                                <span className="tagline">Welcome to my Portfolio</span>
-                                <h1>{`Hi! I'm Lucas Gomes `} <span className="wrap">{text}</span></h1>
-                                <p>Hello, my name is Lucas Gomes, it's a pleasure to meet you! 
-
-                                I'm a curious and dedicated Back-end developer committed to continuous learning. I have a proactive spirit that seeks effective solutions and new operational perspectives for the team.
-
-                                If you're looking for a programmer who can bring technical skills along with a wide range of soft skills and a strong commitment to productivity and innovation, you've just found one.
-
-                                Let's connect!
-
-                                Currently pursuing a degree in Technology in Systems Analysis and Development in the Sixth Semester - Evening Period
-                                </p>
-                                <button onClick={() => console.log('connect')}>Let's Connect! <ArrowRightCircle size={25} /></button>
+                                <span className="tagline">{t("banner.tagline")}</span>
+                                <h1>{t("banner.greeting")} <span className="wrap">{text}</span></h1>
+                                <p>{t("banner.description")}</p>
+                                <button onClick={() => console.log('connect')}>{t("banner.button")} <ArrowRightCircle size={25} /></button>
                             </div>}
                         </TrackVisibility>
                     </Col>

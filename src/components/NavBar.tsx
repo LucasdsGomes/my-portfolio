@@ -4,10 +4,11 @@ import logo from "../assets/img/devLogo.png";
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/nav-icon2.svg";
 import navIcon3 from "../assets/img/nav-icon3.svg";
-
-//import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
 
 export const NavBar = () => {
+  const { t } = useTranslation();
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
 
@@ -25,8 +26,14 @@ export const NavBar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const onUpdateActiveLink = (value: any) => {
+  const onUpdateActiveLink = (value: string) => {
     setActiveLink(value);
+  };
+
+  const handleLanguageChange = () => {
+    const currentLanguage = i18n.language;
+    const newLanguage = currentLanguage === 'pt' ? 'en' : 'pt';
+    i18n.changeLanguage(newLanguage);
   };
 
   return (
@@ -47,7 +54,7 @@ export const NavBar = () => {
                 }
                 onClick={() => onUpdateActiveLink("home")}
               >
-                Home
+                {t("navbar.home")}
               </Nav.Link>
               <Nav.Link
                 href="#skills"
@@ -56,7 +63,7 @@ export const NavBar = () => {
                 }
                 onClick={() => onUpdateActiveLink("skills")}
               >
-                Skills
+                {t("navbar.skills")}
               </Nav.Link>
               <Nav.Link
                 href="#projects"
@@ -67,7 +74,13 @@ export const NavBar = () => {
                 }
                 onClick={() => onUpdateActiveLink("projects")}
               >
-                Projects
+                {t("navbar.projects")}
+              </Nav.Link>
+              <Nav.Link
+                className={activeLink==="translate"? "active navbar-link"
+                  : "navbar-link"} onClick={() => handleLanguageChange()}
+              >
+                {t("navbar.translate")}
               </Nav.Link>
             </Nav>
             <span className="navbar-text">
@@ -83,7 +96,7 @@ export const NavBar = () => {
                 </a>
               </div>
               <button className="vvd" onClick={() => console.log("connect")}>
-                <span>Let's Connect!</span>
+                <span>{t("navbar.connect")}</span>
               </button>
             </span>
           </Navbar.Collapse>

@@ -3,8 +3,11 @@ import logo from "../assets/img/devLogo.png";
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/nav-icon2.svg";
 import navIcon3 from "../assets/img/nav-icon3.svg";
+import { useTranslation } from 'react-i18next';
 
 export const Footer = () => {
+    const { t } = useTranslation();
+
     return (
         <footer className="footer">
             <Container>
@@ -24,11 +27,10 @@ export const Footer = () => {
                                 <img src={navIcon3} alt="Instagram" />
                             </a>
                         </div>
-                        <p>LDSG CopyRight 2024. All Right Reserved</p>
+                        <p>{t("footer.copyright", { year: new Date().getFullYear() })}</p>
                     </Col>
                 </Row>
             </Container>
-
         </footer>
-    )
+    );
 }

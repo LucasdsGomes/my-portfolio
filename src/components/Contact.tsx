@@ -2,8 +2,11 @@ import { useState, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 import emailjs from '@emailjs/browser';
+import { useTranslation } from 'react-i18next';
 
 export const Contact = () => {
+    const { t } = useTranslation();
+
     interface FormUpdateFields {
         category: string;
         value: string;
@@ -18,7 +21,7 @@ export const Contact = () => {
     };
 
     const [formDetails, setFormDetails] = useState(formInitialDetails);
-    const [buttonText, setButtonText] = useState('Send');
+    const [buttonText, setButtonText] = useState(t("contact.send"));
     const [status, setStatus] = useState<{ success?: boolean; message?: string }>({});
     const form = useRef<HTMLFormElement | null>(null); 
 
@@ -28,7 +31,7 @@ export const Contact = () => {
 
     const sendEmail = (e: React.FormEvent) => {
         e.preventDefault();
-        setButtonText("Sending...");
+        setButtonText(t("contact.sending"));
 
         if (form.current) {
             emailjs
@@ -37,19 +40,16 @@ export const Contact = () => {
                 })
                 .then(
                     () => {
-                        setStatus({ success: true, message: "Message sent successfully!" });
-                        console.log("message sent")
+                        setStatus({ success: true, message: t("contact.successMessage") });
                         setFormDetails(formInitialDetails); 
                     },
                     (error) => {
                         console.error('FAILED...', error.text);
-                        console.log("message not sent")
-                        
-                        setStatus({ success: false, message: "Something went wrong. Please try again later." });
+                        setStatus({ success: false, message: t("contact.errorMessage") });
                     },
                 )
                 .finally(() => {
-                    setButtonText("Send"); 
+                    setButtonText(t("contact.send")); 
                 });
         }
     };
@@ -59,10 +59,10 @@ export const Contact = () => {
             <Container>
                 <Row className="align-items-center">
                     <Col md={6}>
-                        <img src={contactImg} alt="Contact Me" />
+                        <img src={contactImg} alt={t("contact.contactImageAlt")} />
                     </Col>
                     <Col md={6}>
-                        <h2>Get in Touch</h2>
+                        <h2>{t("contact.title")}</h2>
                         <form ref={form} onSubmit={sendEmail}>
                             <Row>
                                 <Col sm={6} className="px-1">
@@ -70,7 +70,7 @@ export const Contact = () => {
                                         type="text"
                                         value={formDetails.firstName}
                                         name="user_name"
-                                        placeholder="First Name"
+                                        placeholder={t("contact.firstName")}
                                         onChange={(e) => onFormUpdate({ category: 'firstName', value: e.target.value })}
                                         required
                                     />
@@ -80,7 +80,7 @@ export const Contact = () => {
                                         type="text"
                                         value={formDetails.lastName}
                                         name="user_last_name"
-                                        placeholder="Last Name"
+                                        placeholder={t("contact.lastName")}
                                         onChange={(e) => onFormUpdate({ category: 'lastName', value: e.target.value })}
                                         required
                                     />
@@ -90,7 +90,7 @@ export const Contact = () => {
                                         type="email"
                                         value={formDetails.email}
                                         name="user_email"
-                                        placeholder="Email Address"
+                                        placeholder={t("contact.email")}
                                         onChange={(e) => onFormUpdate({ category: 'email', value: e.target.value })}
                                         required
                                     />
@@ -100,7 +100,7 @@ export const Contact = () => {
                                         type="tel"
                                         value={formDetails.phone}
                                         name="user_phone"
-                                        placeholder="Phone No."
+                                        placeholder={t("contact.phone")}
                                         onChange={(e) => onFormUpdate({ category: 'phone', value: e.target.value })}
                                         required
                                     />
@@ -110,7 +110,7 @@ export const Contact = () => {
                                         rows={6}
                                         value={formDetails.message}
                                         name="message"
-                                        placeholder="Message"
+                                        placeholder={t("contact.message")}
                                         onChange={(e) => onFormUpdate({ category: 'message', value: e.target.value })}
                                         required
                                     />
