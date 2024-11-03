@@ -1,0 +1,86 @@
+{
+    "banner": {
+      "tagline": "Welcome to my Portfolio",
+      "greeting": "Hi! I'm Lucas Gomes",
+      "backendDev": "Backend Dev",
+      "botDev": "Bot Dev",
+      "scrappingDev": "Scrapping Dev",
+      "description": "Hello, my name is Lucas Gomes, it's a pleasure to meet you! I'm a curious and dedicated Back-end developer committed to continuous learning. I have a proactive spirit that seeks effective solutions and new operational perspectives for the team. If you're looking for a programmer who can bring technical skills along with a wide range of soft skills and a strong commitment to productivity and innovation, you've just found one. Let's connect! Currently pursuing a degree in Technology in Systems Analysis and Development in the Sixth Semester - Evening Period",
+      "button": "Let's Connect!"
+    },
+    "contact": {
+        "title": "Get in Touch",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email Address",
+        "phone": "Phone No.",
+        "message": "Message",
+        "send": "Send",
+        "sending": "Sending...",
+        "successMessage": "Message sent successfully!",
+        "errorMessage": "Something went wrong. Please try again later.",
+        "button": "Let's Connect!",
+        "contactImageAlt": "Contact Me"
+    },
+    "footer": {
+        "copyright": "LDSG Copyright {{year}}. All Rights Reserved"
+    },
+    "navbar": {
+        "home": "Home",
+        "skills": "Skills",
+        "projects": "Projects",
+        "connect": "Let's Connect!",
+        "translate": "Translate Page"
+    },
+    "projects": {
+        "title": "Projects",
+        "introduction": "My portfolio highlights a range of full-stack projects showcasing expertise in modern technologies like React, TypeScript, Django, Go, and Ruby on Rails. Each project demonstrates my ability to design and implement scalable applications, from financial tools to CRM systems and interactive bots. With a focus on usability and efficiency, my work blends intuitive user interfaces with robust backend solutions, reflecting a commitment to quality and adaptability in real-world applications.",
+        "clock": {
+        "description": "Application in HTML, CSS, and JS that simulates a real-time clock, changing page color based on the current time, fully customized."
+        },
+        "django": {
+        "description": "CRM system developed in Django for managing customers, leads, and interactions, enhancing customer relationship processes."
+        },
+        "pizzaria": {
+        "description": "Complete pizza ordering system with CRUD and Handlebars, facilitating the management of orders, customers, and products."
+        },
+        "calcIp": {
+        "description": "Application in HTML, CSS, JS, and Golang simulating an IP calculator, supporting subnetting functionality for extensive management."
+        },
+        "goMovie": {
+        "description": "Movie CRUD in Go with future database support for PostgreSQL, focused on managing and organizing movie records in Postman."
+        },
+        "bank": {
+        "description": "Banking app built with React and TypeScript, allowing for account creation, balance checking, and local transactions."
+        }
+    },
+    "skills": {
+        "title": "Skills",
+        "introduction": "I'm a versatile and adaptable developer with a passion for technology and design. I excel in creating engaging and user-friendly interfaces using HTML, CSS, JavaScript, TypeScript, and React. With experience in Python (Django), Golang (Gin), among other languages, I deliver promising projects in the job market.",
+        "html_css": {
+        "title": "HTML & CSS",
+        "description": "Experienced in creating attractive and user-friendly interfaces using HTML and CSS, focusing on usability and responsive design."
+        },
+        "javascript_typescript": {
+        "title": "JavaScript & TypeScript",
+        "description": "Excellence in developing dynamic and interactive interfaces with JavaScript and TypeScript."
+        },
+        "react": {
+        "title": "React",
+        "description": "Creating interactive and high-performance applications in React, utilizing hooks and state management for optimal usability."
+        },
+        "python_django": {
+        "title": "Python & Django",
+        "description": "Developing robust and scalable solutions with Python and Django, focusing on efficiency and security."
+        },
+        "golang_gin": {
+        "title": "GoLang & Gin",
+        "description": "Implementing high-performance backend applications with low latency using GoLang and the Gin framework."
+        },
+        "mysql_postgresql": {
+        "title": "MySQL & PostgreSQL",
+        "description": "Expertise in managing databases with MySQL and PostgreSQL, ensuring data integrity and optimal query performance."
+        }
+    }
+}
+  

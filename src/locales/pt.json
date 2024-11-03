@@ -1,0 +1,83 @@
+{
+    "banner": {
+        "tagline": "Bem-vindo ao meu Portfólio",
+        "greeting": "Oi! Eu sou Lucas Gomes",
+        "description": "Olá, meu nome é Lucas Gomes, é um prazer conhecê-lo! Sou um desenvolvedor Back-end curioso e dedicado, comprometido com o aprendizado contínuo. Tenho um espírito proativo que busca soluções eficazes e novas perspectivas operacionais para a equipe. Se você está procurando um programador que possa trazer habilidades técnicas, juntamente com uma ampla gama de habilidades interpessoais e um forte compromisso com a produtividade e a inovação, você acabou de encontrar. Vamos nos conectar! Atualmente cursando Tecnologia em Análise e Desenvolvimento de Sistemas no Sexto Semestre - Período Noturno",
+        "button": "Vamos Conectar!"
+    },
+    "contact": {
+        "title": "Entre em Contato",
+        "firstName": "Nome",
+        "lastName": "Sobrenome",
+        "email": "Endereço de Email",
+        "phone": "Telefone",
+        "message": "Mensagem",
+        "send": "Enviar",
+        "sending": "Enviando...",
+        "successMessage": "Mensagem enviada com sucesso!",
+        "errorMessage": "Algo deu errado. Por favor, tente novamente mais tarde.",
+        "button": "Vamos Conectar!",
+        "contactImageAlt": "Entre em Contato"
+    },
+    "footer": {
+        "copyright": "LDSG Copyright {{year}}. Todos os Direitos Reservados"
+    },
+    "navbar": {
+        "home": "Início",
+        "skills": "Habilidades",
+        "projects": "Projetos",
+        "connect": "Vamos Conectar!",
+        "translate": "Traduzir Página"
+    },
+    "projects": {
+        "title": "Projetos",
+        "introduction": "Meu portfólio destaca uma variedade de projetos full-stack, demonstrando experiência em tecnologias modernas, como React, TypeScript, Django, Go e Ruby on Rails. Cada projeto reflete minha capacidade de projetar e implementar aplicações escaláveis, desde ferramentas financeiras até sistemas de CRM e bots interativos. Com foco em usabilidade e eficiência, meu trabalho combina interfaces intuitivas com soluções robustas de back-end, refletindo um compromisso com qualidade e adaptabilidade em aplicações do mundo real.",
+        "clock": {
+        "description": "Aplicação em HTML, CSS e JS que simula um relógio em tempo real que modifica a coloração da página conforme o período atual e totalmente personalizado."
+        },
+        "django": {
+        "description": "Sistema CRM desenvolvido em Django para gerenciar clientes, leads e interações, aprimorando processos de relacionamento com clientes."
+        },
+        "pizzaria": {
+        "description": "Sistema completo de pedidos de pizzaria com CRUD e Handlebars, facilitando a gestão de pedidos, clientes e produtos."
+        },
+        "calcIp": {
+        "description": "Aplicação em HTML, CSS, JS e Golang que simula uma calculadora de IP prática que coloca em pauta a funcionalidade de sub-redes e seu uso, permitindo um amplo gerenciamento."
+        },
+        "goMovie": {
+        "description": "CRUD de filmes em Go com base de dados futura para Postgres, focado no gerenciamento e organização de registros de filmes dentro do Postman."
+        },
+        "bank": {
+        "description": "Aplicativo bancário construído com React e TypeScript, permitindo criar contas, consultar saldo e realizar transações de forma local."
+        }
+    },
+    "skills": {
+        "title": "Habilidades",
+        "introduction": "Sou um desenvolvedor versátil e adaptável com paixão por tecnologia e design. Destaco-me na criação de interfaces envolventes e amigáveis, usando HTML, CSS, JavaScript, TypeScript e React. Com experiência em Python (Django), Golang (Gin), entre outras linguagens, entrego projetos promissores no mercado de trabalho.",
+        "html_css": {
+        "title": "HTML & CSS",
+        "description": "Experiência em criar interfaces atraentes e amigáveis, usando HTML e CSS, com foco em usabilidade e design responsivo."
+        },
+        "javascript_typescript": {
+        "title": "JavaScript & TypeScript",
+        "description": "Excelência no desenvolvimento de interfaces dinâmicas e interativas com JavaScript e TypeScript."
+        },
+        "react": {
+        "title": "React",
+        "description": "Criação de aplicações interativas e de alto desempenho em React, utilizando hooks e gerenciamento de estado para melhor usabilidade."
+        },
+        "python_django": {
+        "title": "Python & Django",
+        "description": "Desenvolvimento de soluções robustas e escaláveis com Python e Django, focando em eficiência e segurança."
+        },
+        "golang_gin": {
+        "title": "GoLang & Gin",
+        "description": "Implementação de aplicações backend de alto desempenho e baixa latência usando GoLang e o framework Gin."
+        },
+        "mysql_postgresql": {
+        "title": "MySQL & PostgreSQL",
+        "description": "Especialista em gerenciamento de bancos de dados com MySQL e PostgreSQL, garantindo integridade de dados e desempenho otimizado nas consultas."
+        }
+    }
+}
+  
