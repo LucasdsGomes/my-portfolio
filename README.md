@@ -19,10 +19,6 @@ O portfólio é organizado na seguinte sequência de componentes:
 - **TypeScript**: Uma extensão do JavaScript que adiciona tipagem estática.
 - **CSS**: Para estilos e layout responsivo.
 
-## Execução do Projeto
-
-Para executar o projeto localmente, crie um arquivo de variáveis de ambiente e inclua as chaves de acesso para a API de envio de e-mails.
-Em seguida, para iniciar o projeto, execute o comando `npm run dev`.
 ![image](https://github.com/user-attachments/assets/6257cb44-b448-460e-adc9-cb4a206de749)
 ![image](https://github.com/user-attachments/assets/1132969f-0030-47d7-b204-66b7c8b10b0a)
 
