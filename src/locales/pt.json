@@ -2,7 +2,7 @@
     "banner": {
         "tagline": "Bem-vindo ao meu Portfólio",
         "greeting": "Oi! Eu sou Lucas Gomes",
-        "description": "Olá, meu nome é Lucas Gomes, é um prazer conhecê-lo! Sou um desenvolvedor Back-end curioso e dedicado, comprometido com o aprendizado contínuo. Tenho um espírito proativo que busca soluções eficazes e novas perspectivas operacionais para a equipe. Se você está procurando um programador que possa trazer habilidades técnicas, juntamente com uma ampla gama de habilidades interpessoais e um forte compromisso com a produtividade e a inovação, você acabou de encontrar. Vamos nos conectar! Atualmente cursando Tecnologia em Análise e Desenvolvimento de Sistemas no Sexto Semestre - Período Noturno",
+        "description": "Olá, meu nome é Lucas Gomes, é um prazer conhecê-lo! Sou um desenvolvedor Back-end curioso e dedicado, comprometido com o aprendizado contínuo. Tenho um espírito proativo que busca soluções eficazes e novas perspectivas operacionais para a equipe. Se você está procurando um programador que possa trazer habilidades técnicas, juntamente com uma ampla gama de habilidades interpessoais e um forte compromisso com a produtividade e a inovação, você acabou de encontrar. Vamos nos conectar! Possuo formação em Tecnologia em Análise e Desenvolvimento de Sistemas, ansioso para contribuir e crescer no mundo Tech!",
         "button": "Vamos Conectar!"
     },
     "contact": {
@@ -31,24 +31,24 @@
     },
     "projects": {
         "title": "Projetos",
-        "introduction": "Meu portfólio destaca uma variedade de projetos full-stack, demonstrando experiência em tecnologias modernas, como React, TypeScript, Django, Go e Ruby on Rails. Cada projeto reflete minha capacidade de projetar e implementar aplicações escaláveis, desde ferramentas financeiras até sistemas de CRM e bots interativos. Com foco em usabilidade e eficiência, meu trabalho combina interfaces intuitivas com soluções robustas de back-end, refletindo um compromisso com qualidade e adaptabilidade em aplicações do mundo real.",
-        "clock": {
-        "description": "Aplicação em HTML, CSS e JS que simula um relógio em tempo real que modifica a coloração da página conforme o período atual e totalmente personalizado."
+        "introduction": "Meu portfólio destaca uma variedade de projetos full-stack, demonstrando experiência em tecnologias modernas, como React, TypeScript, Django, Go e Análise de Dados em geral. Cada projeto reflete minha capacidade de projetar e implementar aplicações escaláveis, desde ferramentas financeiras até sistemas de CRM e bots interativos. Com foco em usabilidade e eficiência, meu trabalho combina interfaces intuitivas com soluções robustas de back-end, refletindo um compromisso com qualidade e adaptabilidade em aplicações do mundo real.",
+        "csvAnalysis": {
+        "description": "Análise exploratória de dados (EDA) para identificar padrões e relações entre variáveis relacionadas ao mercado de trabalho, como experiência profissional, idade, salário, carga horária e avaliação de desempenho."
         },
         "django": {
         "description": "Sistema CRM desenvolvido em Django para gerenciar clientes, leads e interações, aprimorando processos de relacionamento com clientes."
         },
-        "pizzaria": {
-        "description": "Sistema completo de pedidos de pizzaria com CRUD e Handlebars, facilitando a gestão de pedidos, clientes e produtos."
+        "techInterview": {
+        "description": "Simulador de Entrevista Técnica Uma plataforma full-stack para treinar candidatos com perguntas de lógica, código, soft skills e cenários práticos, fornecendo feedback automático. Desenvolvida com Next.js no frontend e FastAPI no backend."
         },
-        "calcIp": {
-        "description": "Aplicação em HTML, CSS, JS e Golang que simula uma calculadora de IP prática que coloca em pauta a funcionalidade de sub-redes e seu uso, permitindo um amplo gerenciamento."
+        "spreadSheetAuto": {
+        "description": "Este projeto tem como objetivo automatizar a geração e o envio de relatórios de vendas a partir de planilhas Excel. Ele processa os dados com Pandas, cria um relatório em PDF formatado usando ReportLab, e o envia automaticamente por e-mail via Yagmail."
         },
-        "goMovie": {
-        "description": "CRUD de filmes em Go com base de dados futura para Postgres, focado no gerenciamento e organização de registros de filmes dentro do Postman."
+        "pokeHub": {
+        "description": "Uma aplicação full-stack moderna que consome a PokeAPI para exibir informações sobre Pokémon, desenvolvida com Next.js no frontend e FastAPI no backend. Envolvendo IA e o desenvolvimento de análise de dados com consumo interno no Postman."
         },
-        "bank": {
-        "description": "Aplicativo bancário construído com React e TypeScript, permitindo criar contas, consultar saldo e realizar transações de forma local."
+        "emotionTrack": {
+        "description": "Software baseado em Inteligência Artificial (IA) projetado para identificar e analisar microexpressões faciais em tempo real, com o objetivo de mapear emoções humanas durante interações remotas. O sistema integra um chatbot capaz de interpretar emoções em textos digitados e um dashboard que exibe análises de expressões faciais capturadas por webcam."
         }
     },
     "skills": {
@@ -63,12 +63,12 @@
         "description": "Excelência no desenvolvimento de interfaces dinâmicas e interativas com JavaScript e TypeScript."
         },
         "react": {
-        "title": "React",
-        "description": "Criação de aplicações interativas e de alto desempenho em React, utilizando hooks e gerenciamento de estado para melhor usabilidade."
+        "title": "React/NextJS",
+        "description": "Criação de aplicações interativas e de alto desempenho em React e Next.js, utilizando hooks e gerenciamento de estado para melhor usabilidade."
         },
         "python_django": {
         "title": "Python & Django",
-        "description": "Desenvolvimento de soluções robustas e escaláveis com Python e Django, focando em eficiência e segurança."
+        "description": "Desenvolvimento de soluções robustas e escaláveis com Python e Django, focando em eficiência e segurança. (Pandas, Streamlit, Numpy)"
         },
         "golang_gin": {
         "title": "GoLang & Gin",
