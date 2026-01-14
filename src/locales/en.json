@@ -3,9 +3,9 @@
       "tagline": "Welcome to my Portfolio",
       "greeting": "Hi! I'm Lucas Gomes",
       "backendDev": "Backend Dev",
-      "botDev": "Bot Dev",
-      "scrappingDev": "Scrapping Dev",
-      "description": "Hello, my name is Lucas Gomes, it's a pleasure to meet you! I'm a curious and dedicated Back-end developer committed to continuous learning. I have a proactive spirit that seeks effective solutions and new operational perspectives for the team. If you're looking for a programmer who can bring technical skills along with a wide range of soft skills and a strong commitment to productivity and innovation, you've just found one. Let's connect! Currently pursuing a degree in Technology in Systems Analysis and Development in the Sixth Semester - Evening Period",
+      "dataAnalyst": "Data Analyst",
+      "fullstackDev": "Fullstack Dev",
+      "description": "Hello, my name is Lucas Gomes, it's a pleasure to meet you! I'm a curious and dedicated Back-end developer committed to continuous learning. I have a proactive spirit that seeks effective solutions and new operational perspectives for the team. If you're looking for a programmer who can bring technical skills along with a wide range of soft skills and a strong commitment to productivity and innovation, you've just found one. Let's connect! I hold a degree in Technology in Systems Analysis and Development at IFMS, I'm eager to contribute and grow in the tech world.",
       "button": "Let's Connect!"
     },
     "contact": {
@@ -18,7 +18,7 @@
         "send": "Send",
         "sending": "Sending...",
         "successMessage": "Message sent successfully!",
-        "errorMessage": "Something went wrong. Please try again later.",
+        "errorMessage": "Something went wrong. Please try again later or talk to me on LinkedIn.",
         "button": "Let's Connect!",
         "contactImageAlt": "Contact Me"
     },
@@ -34,24 +34,24 @@
     },
     "projects": {
         "title": "Projects",
-        "introduction": "My portfolio highlights a range of full-stack projects showcasing expertise in modern technologies like React, TypeScript, Django, Go, and Ruby on Rails. Each project demonstrates my ability to design and implement scalable applications, from financial tools to CRM systems and interactive bots. With a focus on usability and efficiency, my work blends intuitive user interfaces with robust backend solutions, reflecting a commitment to quality and adaptability in real-world applications.",
-        "clock": {
-        "description": "Application in HTML, CSS, and JS that simulates a real-time clock, changing page color based on the current time, fully customized."
+        "introduction": "My portfolio highlights a diverse range of full-stack projects, demonstrating expertise in modern technologies such as React, TypeScript, Django, Go, and Data Analysis in general. Each project reflects my ability to design and implement scalable applications, from financial tools to CRM systems and interactive bots. With a strong focus on usability and efficiency, my work combines intuitive interfaces with robust back-end solutions, reflecting a commitment to quality and adaptability in real-world applications.",
+        "csvAnalysis": {
+            "description": "Exploratory Data Analysis (EDA) to identify patterns and relationships between variables related to the job market, such as professional experience, age, salary, workload, and performance evaluation."
         },
         "django": {
-        "description": "CRM system developed in Django for managing customers, leads, and interactions, enhancing customer relationship processes."
+            "description": "CRM system developed with Django to manage customers, leads, and interactions, improving customer relationship management processes."
         },
-        "pizzaria": {
-        "description": "Complete pizza ordering system with CRUD and Handlebars, facilitating the management of orders, customers, and products."
+        "techInterview": {
+            "description": "A full-stack platform designed to train candidates with logic questions, coding challenges, soft skills, and practical scenarios, providing automated feedback. Built with Next.js on the frontend and FastAPI on the backend."
         },
-        "calcIp": {
-        "description": "Application in HTML, CSS, JS, and Golang simulating an IP calculator, supporting subnetting functionality for extensive management."
+        "spreadSheetAuto": {
+            "description": "This project aims to automate the generation and delivery of sales reports from Excel spreadsheets. It processes data using Pandas, generates a formatted PDF report with ReportLab, and automatically sends it via email using Yagmail."
         },
-        "goMovie": {
-        "description": "Movie CRUD in Go with future database support for PostgreSQL, focused on managing and organizing movie records in Postman."
+        "pokeHub": {
+            "description": "A modern full-stack application that consumes the PokeAPI to display information about Pokémon, developed with Next.js on the frontend and FastAPI on the backend. Involving AI and data analysis development with internal consumption in Postman."
         },
-        "bank": {
-        "description": "Banking app built with React and TypeScript, allowing for account creation, balance checking, and local transactions."
+        "emotionTrack": {
+            "description": "Artificial Intelligence (AI)-based software designed to identify and analyze facial microexpressions in real time, aiming to map human emotions during remote interactions. The system integrates a chatbot capable of interpreting emotions from typed text and a dashboard that displays analyses of facial expressions captured via webcam."
         }
     },
     "skills": {
@@ -66,12 +66,12 @@
         "description": "Excellence in developing dynamic and interactive interfaces with JavaScript and TypeScript."
         },
         "react": {
-        "title": "React",
-        "description": "Creating interactive and high-performance applications in React, utilizing hooks and state management for optimal usability."
+        "title": "React/NextJS",
+        "description": "Creating interactive and high-performance applications in React and Next.js, utilizing hooks and state management for optimal usability."
         },
         "python_django": {
         "title": "Python & Django",
-        "description": "Developing robust and scalable solutions with Python and Django, focusing on efficiency and security."
+        "description": "Developing robust and scalable solutions with Python and Django, focusing on efficiency and security. (Pandas, Streamlit, Numpy)"
         },
         "golang_gin": {
         "title": "GoLang & Gin",
