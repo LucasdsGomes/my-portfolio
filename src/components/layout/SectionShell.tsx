@@ -31,7 +31,7 @@ export function SectionShell({ id, eyebrow, title, lead, children, flush = false
           </div>
           <h2
             id={`${id}-title`}
-            className="reveal mt-3 font-display text-xl tracking-[0.02em] uppercase sm:text-2xl"
+            className="reveal fill-in mt-3 font-display text-xl tracking-[0.02em] uppercase sm:text-2xl"
             data-reveal-item
           >
             {title}

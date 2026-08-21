@@ -5,7 +5,7 @@ import { getContent, SITE_URL, pathForLocale } from '@/content';
 const OG_LOCALE: Record<Locale, string> = { pt: 'pt_BR', en: 'en_US' };
 const HREFLANG: Record<Locale, string> = { pt: 'pt-BR', en: 'en' };
 
-/** Metadata idêntica em forma para os dois idiomas — só o conteúdo muda. */
+/** Metadata idêntica em forma para os dois idiomas; só o conteúdo muda. */
 export function buildMetadata(locale: Locale): Metadata {
   const content = getContent(locale);
   const path = pathForLocale(locale);

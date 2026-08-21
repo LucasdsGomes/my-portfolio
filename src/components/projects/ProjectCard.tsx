@@ -39,11 +39,11 @@ export function ProjectCard({ project, content, onOpen, index }: ProjectCardProp
           project.featured ? 'text-xl sm:text-2xl' : 'text-lg'
         }`}
       >
-        {/* o botão se estica sobre o card inteiro — clique em qualquer ponto abre */}
+        {/* o botão se estica sobre o card inteiro: clique em qualquer ponto abre */}
         <button
           type="button"
           onClick={() => onOpen(project)}
-          aria-label={`${project.title} — ${content.labels.openDetail}`}
+          aria-label={`${project.title}. ${content.labels.openDetail}`}
           className="text-left after:absolute after:inset-0 after:rounded-panel after:content-['']"
         >
           {project.title}

@@ -4,10 +4,10 @@ export const en: PortfolioContent = {
   locale: 'en',
 
   meta: {
-    title: 'Lucas Gomes — AI Analyst · automation, data and telemetry',
+    title: 'Lucas Gomes · AI Analyst in automation, data and telemetry',
     description:
       'I build the intelligence layer between operational data and decisions: AI agents, process automation, IoT telemetry pipelines and production APIs. Curitiba, Brazil.',
-    ogAlt: 'Lucas Gomes — AI Analyst. Automation, systems integration and applied data engineering.',
+    ogAlt: 'Lucas Gomes, AI Analyst. Automation, systems integration and applied data engineering.',
     keywords: [
       'AI Analyst',
       'process automation',
@@ -45,7 +45,7 @@ export const en: PortfolioContent = {
     subheadline:
       'From AI agents and process automation to IoT telemetry pipelines and production APIs. Currently building the telemetry platform for a fleet of electric commercial vehicles.',
     availability: 'Engaged · open to conversations',
-    location: 'Curitiba, Brazil — remote',
+    location: 'Curitiba, Brazil · remote',
     portraitAlt: 'Portrait of Lucas Gomes',
     ctaPrimary: 'See the work',
     ctaSecondary: 'Get in touch',
@@ -54,13 +54,13 @@ export const en: PortfolioContent = {
         label: 'ENDPOINTS_IN_PRODUCTION',
         value: 28,
         display: '28',
-        caption: 'Platform data API · 6 domains',
+        caption: 'Platform data API, across 6 domains',
       },
       {
-        label: 'ACTIVE_INTEGRATIONS',
-        value: 4,
-        display: '04',
-        caption: 'Running with no manual intervention',
+        label: 'SYSTEMS_INTEGRATED',
+        value: 8,
+        display: '08',
+        caption: 'CRM, support, ERP, spreadsheets and IoT',
       },
       {
         label: 'CURRENT_FOCUS',
@@ -74,7 +74,7 @@ export const en: PortfolioContent = {
     eyebrow: '// profile',
     title: 'About',
     paragraphs: [
-      'I work at the border between business automation and engineering. I design and ship AI agents, automation workflows, FastAPI services and data pipelines that connect CRM, customer service, operations and product — systems that have to keep running after I leave the room.',
+      'I work at the border between business automation and engineering. I design and ship AI agents, automation workflows, FastAPI services and data pipelines that connect CRM, customer service, operations and product. These are systems that have to keep running after I leave the room.',
       'My foundation came from n8n automation and CRM integration: Bitrix24, Chatwoot, WhatsApp Business API. From there I moved into data architecture on Supabase and PostgreSQL and, more recently, into real-time telemetry ingestion with MQTT and Azure IoT Hub.',
       'I am currently deepening machine learning fundamentals in a practical way: an honest baseline before any model, F1-macro on imbalanced classes, group-aware splits so nothing leaks between train and test. I apply the same rigour to an audio classification project and to real fleet data alike.',
       'Remote, direct communication, delivery measured against a result.',
@@ -82,32 +82,21 @@ export const en: PortfolioContent = {
     facts: [
       { label: 'LOCATION', value: 'Curitiba, Brazil' },
       { label: 'ROLE', value: 'AI Analyst · Milen.ia (contractor)' },
-      { label: 'FOCUS', value: 'Fleet telemetry · agents · data' },
+      { label: 'FOCUS', value: 'Fleet telemetry, agents and data' },
       { label: 'AVAILABILITY', value: 'Engaged · open to conversations' },
     ],
     education: {
       eyebrow: '// education',
       degree: 'Technologist Degree in Systems Analysis and Development',
-      period: '2022 — 2025',
+      period: '2022 to 2025',
       status: 'Completed',
     },
     credentials: {
       eyebrow: '// certifications',
+      issuer: 'Viver de IA',
+      count: 11,
       summary:
-        'Applied training in AI and automation — every certificate below turned into work shipped to production.',
-      items: [
-        { title: 'AI agents in n8n', issuer: 'Viver de IA', year: '2026' },
-        { title: 'RAG in practice', issuer: 'Viver de IA', year: '2026' },
-        { title: 'Multi-agent customer service platform', issuer: 'Viver de IA', year: '2026' },
-        { title: 'Building a WhatsApp SDR with n8n', issuer: 'Viver de IA', year: '2026' },
-        { title: 'Automated blog with AI 3.0', issuer: 'Viver de IA', year: '2026' },
-        { title: 'n8n chatbot', issuer: 'Viver de IA', year: '2026' },
-        { title: 'SQL with AI', issuer: 'Viver de IA', year: '2026' },
-        { title: 'Social media automation at scale', issuer: 'Viver de IA', year: '2026' },
-        { title: 'Lovable in practice', issuer: 'Viver de IA', year: '2026' },
-        { title: 'Perplexity track', issuer: 'Viver de IA', year: '2026' },
-        { title: 'Make configuration assistant', issuer: 'Viver de IA', year: '2026' },
-      ],
+        'Applied training in AI agents on n8n, RAG, multi-agent platforms and SQL with AI. Every certificate turned into work shipped to production.',
     },
   },
 
@@ -126,7 +115,7 @@ export const en: PortfolioContent = {
         label: 'STUDY',
         title: 'Machine learning fundamentals',
         description:
-          'The full cycle of a genuinely hard classification problem — bioacoustics, 42 species, severe class imbalance — done in the right order: group-aware split first, a dumb baseline to set the bar, F1-macro as the metric. Method before result.',
+          'The full cycle of a genuinely hard classification problem, bioacoustics with 42 species and severe class imbalance, done in the right order: group-aware split first, a dumb baseline to set the bar, F1-macro as the metric. Method before result.',
       },
     ],
   },
@@ -134,7 +123,7 @@ export const en: PortfolioContent = {
   projects: {
     eyebrow: '// work',
     title: 'Selected work',
-    lead: 'Each card states the problem, what I built and with what. Architecture and technical decisions — never configuration, credentials or client data.',
+    lead: 'Each card states the problem, what I built and with what. Architecture and technical decisions, never configuration, credentials or client data.',
     filterAll: 'All',
     filterLabel: 'Filter work by category',
     categories: {
@@ -158,7 +147,7 @@ export const en: PortfolioContent = {
     items: [
       {
         id: 'telemetria-frota',
-        title: 'Telemetry platform — electric fleet',
+        title: 'Electric fleet telemetry platform',
         category: 'dados-iot',
         context: 'Milen.ia · Hitech Electric',
         featured: true,
@@ -167,7 +156,7 @@ export const en: PortfolioContent = {
         problem:
           'A fleet of electric urban cargo vehicles with no unified operational visibility: battery state, cell health and real usage lived in separate sources.',
         built:
-          'I built the full real-time ingestion pipeline — from vehicle to database through MQTT, Azure IoT Hub, Event Hub and Azure Functions — and the operational dashboard in Next.js. I defined the canonical database schema with standardised signal naming, which removed ambiguity between sources and made consistent historical analysis possible. It is the foundation the API and the AI diagnostics were built on.',
+          'I built the full real-time ingestion pipeline, from vehicle to database through MQTT, Azure IoT Hub, Event Hub and Azure Functions, plus the operational dashboard in Next.js. I defined the canonical database schema with standardised signal naming, which removed ambiguity between sources and made consistent historical analysis possible. It is the foundation the API and the AI diagnostics were built on.',
         stack: [
           'MQTT',
           'Azure IoT Hub',
@@ -181,7 +170,7 @@ export const en: PortfolioContent = {
       },
       {
         id: 'api-anel-0',
-        title: 'Ring 0 API — the platform data layer',
+        title: 'Ring 0 API, the platform data layer',
         category: 'dados-iot',
         context: 'Milen.ia · Hitech Electric',
         status: 'producao',
@@ -200,7 +189,7 @@ export const en: PortfolioContent = {
         status: 'evolucao',
         statusLabel: 'In production · evolving',
         problem:
-          'Raw telemetry is not actionable for the people running the fleet — whoever reads the panel needs a conclusion, not a time series.',
+          'Raw telemetry is not actionable for the people running the fleet. Whoever reads the panel needs a conclusion, not a time series.',
         built:
           'I built the diagnostics layer that reads battery signals and usage patterns and returns them in natural language, grounded in the platform canonical schema. I also defined the three-phase ML roadmap: anomaly detection, time series forecasting and finally supervised models.',
         stack: ['Gemini Flash', 'Python', 'Supabase', 'Isolation Forest', 'Prophet', 'LightGBM'],
@@ -208,7 +197,7 @@ export const en: PortfolioContent = {
       },
       {
         id: 'mila-sdr',
-        title: 'Mila — multichannel SDR agent',
+        title: 'Mila, a multichannel SDR agent',
         category: 'ia-agentes',
         context: 'Milen.ia',
         status: 'producao',
@@ -229,7 +218,7 @@ export const en: PortfolioContent = {
         problem:
           'A dormant lead base with no re-engagement cadence and no control over send volume.',
         built:
-          'I built a set of reactivation workflows with a daily send cap, validation of Brazilian phone number formats (which vary more than you would expect) and conversation creation in the service platform from an approved template. To work around the platform execution timeout I replaced waiting with timestamp-based expiry — the flow resumes from the right point instead of holding an execution open.',
+          'I built a set of reactivation workflows with a daily send cap, validation of Brazilian phone number formats (which vary more than you would expect) and conversation creation in the service platform from an approved template. To work around the platform execution timeout I replaced waiting with timestamp-based expiry, so the flow resumes from the right point instead of holding an execution open.',
         stack: ['n8n', 'Bitrix24', 'Chatwoot', 'WhatsApp Business API', 'Google Sheets'],
       },
       {
@@ -240,7 +229,7 @@ export const en: PortfolioContent = {
         status: 'producao',
         statusLabel: 'In production',
         problem:
-          'Manual, irregular content production — always the first thing cut when the week gets tight.',
+          'Manual, irregular content production, always the first thing cut when the week gets tight.',
         built:
           'I built the pipeline that generates text and imagery, publishes through an edge function and keeps the blog current with no intervention. It has run on its own since it shipped.',
         stack: ['n8n', 'Supabase Edge Functions', 'Picsart', 'Imagen'],
@@ -253,22 +242,10 @@ export const en: PortfolioContent = {
         status: 'entregue',
         statusLabel: 'Delivered',
         problem:
-          'Metrics scattered across CRM, spreadsheets and ERP — every team with a different number for the same question.',
+          'Metrics scattered across CRM, spreadsheets and ERP, with every team reaching a different number for the same question.',
         built:
           'I unified the sales and marketing panels with two-phase data enrichment and KPIs validated with the team before they became charts. I also delivered a finance panel integrated with the ERP, closing the revenue loop.',
         stack: ['Lovable', 'Supabase', 'Bitrix24', 'Omie', 'SQL'],
-      },
-      {
-        id: 'prospeccao-b2b',
-        title: 'B2B prospecting pipeline',
-        category: 'automacao',
-        context: 'Milen.ia',
-        status: 'entregue',
-        statusLabel: 'Delivered',
-        problem: 'Cold prospecting lists with no business context and no basis for prioritisation.',
-        built:
-          'I built the business collection step, LLM enrichment of each record and structured import straight into the CRM. The team started receiving leads with context instead of spreadsheet rows.',
-        stack: ['Apify', 'OpenAI', 'Bitrix24', 'Python'],
       },
       {
         id: 'rag-conhecimento-interno',
@@ -279,9 +256,9 @@ export const en: PortfolioContent = {
         statusLabel: 'Delivered',
         repo: 'https://github.com/LucasdsGomes/my-chatbot-n8n',
         problem:
-          'Internal documentation — policies, manuals, technical rules — exists, but nobody finds the answer at the moment they need it.',
+          'Internal documentation, from policies to manuals and technical rules, exists. But nobody finds the answer at the moment they need it.',
         built:
-          'A question-answering application over internal documents using RAG: PDF ingestion, embeddings and vector search on Supabase, orchestration in n8n and an Express API layer. It taught me in practice where RAG breaks — poor chunking and irrelevant retrieval sink the answer before the model even speaks.',
+          'A question-answering application over internal documents using RAG: PDF ingestion, embeddings and vector search on Supabase, orchestration in n8n and an Express API layer. It taught me in practice where RAG breaks: poor chunking and irrelevant retrieval sink the answer before the model even speaks.',
         stack: ['n8n', 'Supabase', 'pgvector', 'Express', 'RAG', 'Embeddings'],
       },
       {
@@ -293,7 +270,7 @@ export const en: PortfolioContent = {
         statusLabel: 'Delivered',
         repo: 'https://github.com/LucasdsGomes/ai-business-process-optimizer',
         problem:
-          'AI, automation and data analysis are usually studied in isolation — and that learning does not survive contact with a real flow.',
+          'AI, automation and data analysis are usually studied in isolation, and that learning does not survive contact with a real flow.',
         built:
           'I built a single flow that receives process requests, orchestrates handling, analyses with an LLM and returns the result in a dashboard. It is deliberately applied study rather than a polished tutorial: the architecture decisions are recorded in the repository, iterations included.',
         stack: ['Python', 'FastAPI', 'PostgreSQL', 'Docker', 'n8n', 'OpenRouter', 'Streamlit'],
@@ -308,23 +285,9 @@ export const en: PortfolioContent = {
         problem:
           'AnuraSet: a Brazilian bioacoustics dataset with 42 species and severe class imbalance.',
         built:
-          'A study project covering the full ML cycle in the right order. A group-aware split before any modelling, so recordings from the same site cannot leak from train into test. A DummyClassifier baseline to set an honest bar, and F1-macro as the metric — accuracy on a dataset like this lies.',
+          'A study project covering the full ML cycle in the right order. A group-aware split before any modelling, so recordings from the same site cannot leak from train into test. A DummyClassifier baseline to set an honest bar, and F1-macro as the metric, because accuracy on a dataset like this lies.',
         stack: ['Python', 'pandas', 'scikit-learn', 'librosa'],
         note: 'It is in the portfolio for the method, not the result. The hard part of an imbalanced problem is building an evaluation you cannot fool yourself with.',
-      },
-      {
-        id: 'data-quality-analyzer',
-        title: 'Data quality analyser',
-        category: 'estudos',
-        context: 'Personal project',
-        status: 'entregue',
-        statusLabel: 'Delivered',
-        repo: 'https://github.com/LucasdsGomes/data-quality-analyzer',
-        problem:
-          'Before trusting a dataset, someone has to say how trustworthy it is — and usually nobody does.',
-        built:
-          'An application that takes a CSV and returns descriptive statistics, null and outlier detection, a 0–100 quality score and an exportable report. It came from the same principle I apply in ML: diagnose the data before drawing conclusions from it.',
-        stack: ['Python', 'Streamlit', 'pandas', 'Matplotlib', 'ReportLab'],
       },
     ],
   },
@@ -332,7 +295,7 @@ export const en: PortfolioContent = {
   stack: {
     eyebrow: '// stack',
     title: 'Stack',
-    lead: 'Grouped by domain, with emphasis on what I use daily. No percentage bars — proficiency is not a number anyone can defend.',
+    lead: 'Grouped by domain, with emphasis on what I use daily. No percentage bars, because proficiency is not a number anyone can defend.',
     coreLabel: 'Daily driver',
     core: ['Python', 'FastAPI', 'n8n', 'Supabase', 'PostgreSQL', 'TypeScript'],
     groups: [
@@ -397,7 +360,7 @@ export const en: PortfolioContent = {
         index: '02',
         title: 'Integration & Data',
         description:
-          'The flows started demanding a source of truth. I moved to owning the data architecture and writing APIs instead of chaining nodes — with contracts, tests and a schema thought through up front.',
+          'The flows started demanding a source of truth. I moved to owning the data architecture and writing APIs instead of chaining nodes, with contracts, tests and a schema thought through up front.',
         markers: ['FastAPI', 'Supabase', 'PostgreSQL', 'AI agents', 'pytest'],
       },
       {
@@ -413,7 +376,7 @@ export const en: PortfolioContent = {
   contact: {
     eyebrow: '// contact',
     title: 'Let us talk',
-    lead: 'No form. Pick a channel — I answer on all of them.',
+    lead: 'No form. Pick a channel, I answer on all of them.',
     links: [
       {
         label: 'Email',

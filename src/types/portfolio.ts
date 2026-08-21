@@ -13,13 +13,13 @@ export type ProjectCategory =
 export type ProjectStatus = 'producao' | 'evolucao' | 'andamento' | 'entregue';
 
 export interface Project {
-  /** slug estável — usado como id do dialog e âncora */
+  /** slug estável, usado como id do dialog e âncora */
   id: string;
   title: string;
   category: ProjectCategory;
   /** o problema, em uma frase */
   problem: string;
-  /** o que eu construí — 2 a 3 frases */
+  /** o que eu construí, em 2 a 3 frases */
   built: string;
   stack: readonly string[];
   status: ProjectStatus;
@@ -29,7 +29,7 @@ export interface Project {
   repo?: string;
   /** contexto do trabalho (empregador/cliente), quando aplicável */
   context?: string;
-  /** destaque #1 — ocupa duas colunas no grid */
+  /** destaque #1: ocupa duas colunas no grid */
   featured?: boolean;
   /** por que este projeto está no portfólio (aparece só no detalhe) */
   note?: string;
@@ -41,7 +41,7 @@ export interface StackGroup {
 }
 
 export interface TimelinePhase {
-  /** a ordem carrega informação aqui — por isso é numerada */
+  /** a ordem carrega informação aqui, por isso é numerada */
   index: string;
   title: string;
   description: string;
@@ -67,12 +67,6 @@ export interface ContactLink {
 export interface NavItem {
   href: string;
   label: string;
-}
-
-export interface Credential {
-  title: string;
-  issuer: string;
-  year: string;
 }
 
 export interface PortfolioContent {
@@ -112,8 +106,9 @@ export interface PortfolioContent {
     education: { eyebrow: string; degree: string; period: string; status: string };
     credentials: {
       eyebrow: string;
+      issuer: string;
+      count: number;
       summary: string;
-      items: readonly Credential[];
     };
   };
   focus: {
@@ -146,7 +141,7 @@ export interface PortfolioContent {
     title: string;
     lead: string;
     coreLabel: string;
-    /** 5–6 tecnologias centrais — recebem destaque visual leve */
+    /** 5 a 6 tecnologias centrais, com destaque visual leve */
     core: readonly string[];
     groups: readonly StackGroup[];
   };

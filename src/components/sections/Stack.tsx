@@ -12,7 +12,7 @@ export function Stack({ content }: StackProps) {
 
   return (
     <SectionShell id="stack" eyebrow={stack.eyebrow} title={stack.title} lead={stack.lead}>
-      {/* legenda do destaque em âmbar — sem ela o realce fica sem significado */}
+      {/* legenda do destaque em âmbar; sem ela o realce fica sem significado */}
       <p
         className="reveal inline-flex items-center gap-2 font-mono text-2xs text-fg-muted"
         data-reveal-item

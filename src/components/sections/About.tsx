@@ -20,7 +20,7 @@ export function About({ content }: AboutProps) {
         </div>
 
         <div className="space-y-4">
-          {/* bloco de dados objetivos — leitura, não prosa */}
+          {/* bloco de dados objetivos: leitura, não prosa */}
           <dl
             className="reveal divide-y divide-line rounded-panel border border-line bg-surface"
             data-reveal-item
@@ -48,39 +48,21 @@ export function About({ content }: AboutProps) {
             </p>
           </div>
 
-          <details
-            className="reveal group rounded-panel border border-line bg-surface"
+          <div
+            className="reveal rounded-panel border border-line bg-surface px-5 py-4"
             data-reveal-item
           >
-            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 px-5 py-4">
-              <span className="font-mono text-2xs tracking-[0.14em] text-accent lowercase">
+            <div className="flex items-center justify-between gap-4">
+              <p className="font-mono text-2xs tracking-[0.14em] text-accent lowercase">
                 {about.credentials.eyebrow}
-              </span>
-              <span className="tabular font-mono text-2xs text-fg-muted">
-                {String(about.credentials.items.length).padStart(2, '0')}
-                <span aria-hidden="true" className="ml-2 inline-block group-open:hidden">
-                  +
-                </span>
-                <span aria-hidden="true" className="ml-2 hidden group-open:inline-block">
-                  −
-                </span>
-              </span>
-            </summary>
-
-            <div className="border-t border-line px-5 py-4">
-              <p className="text-2xs text-fg-muted">{about.credentials.summary}</p>
-              <ul className="mt-4 space-y-2.5">
-                {about.credentials.items.map((credential) => (
-                  <li key={credential.title} className="flex items-baseline justify-between gap-4">
-                    <span className="text-2xs text-fg">{credential.title}</span>
-                    <span className="tabular shrink-0 font-mono text-2xs text-fg-muted">
-                      {credential.issuer}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              </p>
+              <p className="tabular font-mono text-2xs text-accent-warm">
+                {String(about.credentials.count).padStart(2, '0')}
+                <span className="ml-1.5 text-fg-muted">{about.credentials.issuer}</span>
+              </p>
             </div>
-          </details>
+            <p className="mt-3 text-2xs text-fg-muted">{about.credentials.summary}</p>
+          </div>
         </div>
       </div>
     </SectionShell>

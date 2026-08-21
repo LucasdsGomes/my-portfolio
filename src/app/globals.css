@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 /* ------------------------------------------------------------------
-   TOKENS — instrumentação: grafite, azul-sinal, âmbar.
+   TOKENS. Instrumentação: grafite, azul-sinal, âmbar.
    Toda cor da página nasce aqui. Nenhum hex solto em componente.
 ------------------------------------------------------------------ */
 @theme {
@@ -73,7 +73,7 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* malha de instrumento — 1px, praticamente subliminar */
+  /* malha de instrumento, 1px, praticamente subliminar */
   body::before {
     content: '';
     position: fixed;
@@ -106,7 +106,7 @@
     line-height: 1.05;
   }
 
-  /* tabelas numéricas alinhadas — leitura de instrumento */
+  /* tabelas numéricas alinhadas, leitura de instrumento */
   .tabular {
     font-variant-numeric: tabular-nums;
     font-feature-settings: 'tnum' 1;
@@ -114,7 +114,7 @@
 }
 
 /* ------------------------------------------------------------------
-   MOVIMENTO — reveal de seção e sweep de ignição.
+   MOVIMENTO. Reveal de seção e sweep de ignição.
    Tudo desligável por prefers-reduced-motion.
 ------------------------------------------------------------------ */
 @layer utilities {
@@ -136,7 +136,7 @@
     border: 1px solid var(--color-line);
   }
 
-  /* barra de sinal do header — o único movimento contínuo da página */
+  /* barra de sinal do header, o único movimento contínuo da página */
   .signal-sweep {
     animation: signal-scroll 22s linear infinite;
   }
@@ -153,6 +153,102 @@
     animation: ignite-reveal 900ms var(--ease-sweep) both;
     animation-delay: var(--ignite-delay, 0ms);
   }
+}
+
+/* ------------------------------------------------------------------
+   PREENCHIMENTO DE TÍTULO
+   O título entra apagado e é preenchido da esquerda para a direita
+   quando a seção aparece. É uma faixa de duas cores com corte seco
+   deslizando sob o texto, não um degradê: são exatamente dois tons,
+   os mesmos do resto da página.
+------------------------------------------------------------------ */
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .fill-in {
+    background-image: linear-gradient(
+      90deg,
+      var(--color-fg) 0 50%,
+      var(--color-fg-muted) 50% 100%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: background-position 900ms var(--ease-sweep);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  [data-visible='true'] .fill-in,
+  [data-visible='true'].fill-in {
+    background-position: 0 0;
+  }
+}
+
+/* ------------------------------------------------------------------
+   RETÍCULO
+   Substitui a seta do sistema. A camada só aparece depois que o
+   componente arma o cursor; sem JS ou em toque, nada muda.
+------------------------------------------------------------------ */
+.reticle-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  pointer-events: none;
+  /* mantém o retículo legível também sobre o retrato, que é claro */
+  filter: drop-shadow(0 0 1px rgb(0 0 0 / 0.55));
+}
+
+/*
+   O <dialog> modal vai para a top layer, acima de qualquer z-index, e o
+   retículo ficaria escondido atrás dele: modal aberto, cursor nenhum.
+   Enquanto houver dialog aberto, o cursor do sistema volta.
+*/
+:root[data-cursor='reticle']:not(:has(dialog[open])) .reticle-layer {
+  display: block;
+}
+
+:root[data-cursor='reticle']:not(:has(dialog[open])),
+:root[data-cursor='reticle']:not(:has(dialog[open])) * {
+  cursor: none !important;
+}
+
+.reticle-dot,
+.reticle-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.reticle-dot {
+  width: 3px;
+  height: 3px;
+  margin: -1.5px 0 0 -1.5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.reticle-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--color-accent);
+  border-radius: 2px;
+  opacity: 0.65;
+  transform: translate(-50%, -50%) scale(1);
+  transition:
+    transform 220ms var(--ease-sweep),
+    border-color 220ms var(--ease-sweep),
+    opacity 220ms var(--ease-sweep);
+}
+
+.reticle-ring[data-state='interactive'] .reticle-frame {
+  border-color: var(--color-accent-warm);
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.7);
 }
 
 @keyframes signal-scroll {
@@ -199,5 +295,10 @@
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .fill-in {
+    background-image: none;
+    color: var(--color-fg);
   }
 }

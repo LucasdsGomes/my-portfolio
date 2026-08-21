@@ -2,6 +2,8 @@ import type { ReactNode } from 'react';
 import type { Locale } from '@/types/portfolio';
 import { getContent, SITE_URL, alternateLocale, pathForLocale } from '@/content';
 import { fontVariables } from '@/app/fonts';
+import { CursorReticle } from './CursorReticle';
+import { ScrollSpine } from './ScrollSpine';
 import { Header } from './Header';
 import { Footer } from './Footer';
 
@@ -58,9 +60,13 @@ export function Shell({ locale, children }: ShellProps) {
           alternateLang={HTML_LANG[other]}
         />
 
+        <ScrollSpine items={content.nav.items} />
+
         <main id="conteudo">{children}</main>
 
         <Footer content={content} />
+
+        <CursorReticle />
 
         <script
           type="application/ld+json"

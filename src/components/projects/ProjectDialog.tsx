@@ -32,7 +32,7 @@ export function ProjectDialog({ project, content, onClose }: ProjectDialogProps)
 
     // `close` não borbulha, então o onClose do React não chega aqui:
     // sem este listener nativo, Escape fecharia o elemento e deixaria
-    // o estado do React aberto — página travada com o scroll bloqueado.
+    // o estado do React aberto, com a página travada e o scroll bloqueado.
     dialog.addEventListener('close', onClose);
 
     return () => {

@@ -20,7 +20,7 @@ const C = {
 
 /**
  * Busca uma fonte do Google para o OG ficar na tipografia da página.
- * Se a rede falhar no build, cai na fonte padrão do next/og — imagem
+ * Se a rede falhar no build, cai na fonte padrão do next/og. Imagem
  * menos fiel, mas nunca um build quebrado.
  */
 async function loadFont(family: string, weight: number, text: string) {

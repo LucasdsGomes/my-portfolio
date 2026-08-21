@@ -1,6 +1,6 @@
 interface TagProps {
   children: string;
-  /** tecnologia de uso diário — recebe destaque leve */
+  /** tecnologia de uso diário, recebe destaque leve */
   emphasis?: boolean;
 }
 

@@ -7,7 +7,7 @@ const STAGGER_MS = 60;
 /**
  * Revela os filhos marcados com [data-reveal-item] quando a seção entra
  * na viewport, com stagger de 60ms. Um observer por seção, desligado
- * assim que dispara — o reveal não se repete no scroll de volta.
+ * assim que dispara, para o reveal não se repetir no scroll de volta.
  */
 export function useReveal<T extends HTMLElement>() {
   const ref = useRef<T>(null);

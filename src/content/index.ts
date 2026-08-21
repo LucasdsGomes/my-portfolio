@@ -15,7 +15,7 @@ export function getContent(locale: Locale): PortfolioContent {
 /**
  * URL canônica do site. Não há domínio hard-coded aqui de propósito:
  * defina NEXT_PUBLIC_SITE_URL na Vercel com o domínio de produção.
- * Sem ele, cai na URL do deploy — que serve, mas não é canônica.
+ * Sem ele, cai na URL do deploy, que serve mas não é canônica.
  */
 function resolveSiteUrl(): string {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL;

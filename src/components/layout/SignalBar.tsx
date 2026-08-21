@@ -3,7 +3,7 @@ const HEIGHT = 24;
 const STEPS = 120;
 
 /**
- * Traço de sinal determinístico — mesma saída no servidor e no cliente,
+ * Traço de sinal determinístico: mesma saída no servidor e no cliente,
  * e as pontas fecham no mesmo valor para o tile emendar sem salto.
  */
 function buildTile(): string {

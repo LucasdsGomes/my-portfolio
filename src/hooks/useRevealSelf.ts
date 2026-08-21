@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 
 /**
- * Reveal por elemento, para conteúdo que entra e sai da árvore — como os
+ * Reveal por elemento, para conteúdo que entra e sai da árvore, como os
  * cards ao trocar de filtro. Um card montado já dentro da viewport revela
  * na hora; um card fora dela espera o scroll.
  */
