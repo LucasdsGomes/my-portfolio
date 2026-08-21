@@ -1,25 +1,70 @@
-# Meu Portfólio
+# Portfólio — Lucas Gomes
 
-Bem-vindo ao meu portfólio! Este projeto foi desenvolvido utilizando **React**, **TypeScript** e **CSS**, e está publicado no Vercel. Aqui você encontrará informações sobre mim, meus projetos e habilidades, além de uma funcionalidade para enviar e-mails.
+Landing page de posicionamento profissional. Single-page, bilíngue (pt-BR / EN), estática.
 
-## Estrutura do Projeto
+**Stack:** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · Vercel
 
-O portfólio é organizado na seguinte sequência de componentes:
+## Rodar
 
-1. **Navbar**: Navegação fácil e intuitiva para explorar as diferentes seções do portfólio.
-2. **Banner**: Uma introdução visual atraente que apresenta uma breve descrição sobre mim.
-3. **Projects / ProjectCard**: Exibição dos meus projetos, com cards informativos que destacam as principais características e tecnologias utilizadas.
-4. **Skills**: Uma seção dedicada às minhas habilidades técnicas, demonstrando meu conhecimento nas áreas relevantes.
-5. **Contact**: Um formulário de contato que permite que você me envie e-mails diretamente através do portfólio.
-6. **Footer**: Informações de rodapé, incluindo links para minhas redes sociais e outras formas de contato.
+```bash
+npm install && npm run dev
+```
 
-## Tecnologias Utilizadas
+| Comando | O que faz |
+| --- | --- |
+| `npm run dev` | Servidor de desenvolvimento em http://localhost:3000 |
+| `npm run build` | Build de produção (gera as 7 rotas estáticas) |
+| `npm run typecheck` | TypeScript sem emitir |
+| `npm run lint` | ESLint |
 
-- **React**: Biblioteca JavaScript para construir interfaces de usuário.
-- **TypeScript**: Uma extensão do JavaScript que adiciona tipagem estática.
-- **CSS**: Para estilos e layout responsivo.
+## Onde mexer
 
-![image](https://github.com/user-attachments/assets/6257cb44-b448-460e-adc9-cb4a206de749)
-![image](https://github.com/user-attachments/assets/1132969f-0030-47d7-b204-66b7c8b10b0a)
+Todo o texto e todos os projetos vivem em dois arquivos tipados. **Não é preciso abrir componente nenhum para editar conteúdo.**
 
+```
+src/content/portfolio.pt.ts    conteúdo em português
+src/content/portfolio.en.ts    conteúdo em inglês
+src/types/portfolio.ts         o contrato que os dois obedecem
+```
 
+Os dois idiomas compartilham o mesmo tipo: se um projeto existir em um e faltar no outro, `npm run build` quebra antes do deploy.
+
+### Paleta e tipografia
+
+Os tokens estão em `src/app/globals.css`, no bloco `@theme` — o Tailwind gera as classes (`bg-surface`, `text-accent-warm`…) a partir dali. Nenhum componente carrega hex solto.
+
+Uma exceção: `src/app/og.tsx` repete os hex, porque o gerador da imagem de Open Graph não lê CSS. Mudou a paleta, mude nos dois lugares.
+
+## Retrato
+
+O hero mostra a foto se existir `public/portrait.jpg`. Sem o arquivo, o hero degrada para uma coluna só — sem moldura vazia, sem placeholder. Recomendado: ao menos 1200px no lado menor, fundo escuro ou neutro.
+
+## Variáveis de ambiente
+
+| Variável | Para quê |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Domínio de produção. Alimenta canonical, hreflang, sitemap e Open Graph. |
+
+Sem ela o site cai na URL do deploy da Vercel: funciona, mas não é canônica. Defina no painel da Vercel antes de apontar o domínio.
+
+## Rotas
+
+| Rota | Idioma |
+| --- | --- |
+| `/` | pt-BR |
+| `/en` | en |
+| `/sitemap.xml`, `/robots.txt` | — |
+| `/opengraph-image`, `/en/opengraph-image` | imagem OG gerada no build |
+
+Cada idioma tem seu próprio root layout (`src/app/(pt)` e `src/app/(en)`), o que permite `<html lang>` correto em cada um sem JavaScript.
+
+## Acessibilidade e movimento
+
+- `prefers-reduced-motion: reduce` desliga toda animação; os mostradores do hero entregam o valor final direto.
+- O HTML servido já traz os valores finais — sem JS, o hero lê certo e não há layout shift.
+- Modal de projeto é `<dialog>` nativo: focus trap, Escape e devolução de foco sem biblioteca.
+- Foco de teclado visível em todo elemento interativo; alvos de toque de 44px.
+
+## `legacy/`
+
+Guarda o portfólio anterior (Vite + React + Bootstrap), preservado para consulta. Não entra no build nem no lint. Pode ser removido quando não fizer mais falta.
