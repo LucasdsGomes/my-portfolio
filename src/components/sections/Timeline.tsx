@@ -23,6 +23,8 @@ export function Timeline({ content }: TimelineProps) {
               <h3 className="font-display text-lg tracking-[0.01em] uppercase">{phase.title}</h3>
             </div>
 
+            <p className="tabular mt-2 font-mono text-2xs text-fg-muted">{phase.period}</p>
+
             <p className="mt-4 text-xs text-fg-muted">{phase.description}</p>
 
             <ul className="mt-5 space-y-1.5">

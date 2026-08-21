@@ -352,24 +352,27 @@ export const pt: PortfolioContent = {
     phases: [
       {
         index: '01',
-        title: 'Automação & CRM',
+        period: '2022 a 2024',
+        title: 'Automação & integração',
         description:
-          'Comecei ligando sistemas que não conversavam: CRM, atendimento e WhatsApp. Aprendi que a maior parte do problema de automação é dado inconsistente, não lógica de fluxo.',
-        markers: ['n8n', 'Bitrix24', 'Chatwoot', 'WhatsApp Business API'],
+          'Comecei como desenvolvedor freelance, escrevendo APIs e integrações em Python e Go e robôs de automação. Foi ali que aprendi que a maior parte de um problema de integração é dado inconsistente, não lógica de fluxo: tratando isso na origem, as falhas de processamento caíram 30%.',
+        markers: ['Python', 'Go', 'REST', 'Selenium', 'PyAutoGUI'],
       },
       {
         index: '02',
-        title: 'Integração & Dados',
+        period: '2026',
+        title: 'IA aplicada & CRM',
         description:
-          'Os fluxos passaram a exigir uma fonte de verdade. Migrei para arquitetura de dados própria e passei a escrever APIs em vez de encadear nós, com contrato, teste e schema pensado antes.',
-        markers: ['FastAPI', 'Supabase', 'PostgreSQL', 'Agentes de IA', 'pytest'],
+          'Entrei na Milen.ia ligando sistemas que não conversavam: CRM, atendimento e WhatsApp. Agentes conversacionais e workflows de automação em produção, com a régua de qualidade vindo do dado de origem, não do prompt.',
+        markers: ['n8n', 'Bitrix24', 'Chatwoot', 'WhatsApp Business API', 'LLM'],
       },
       {
         index: '03',
-        title: 'Telemetria IoT & ML',
+        period: '2026 · atual',
+        title: 'Dados & telemetria',
         description:
-          'A frequência de dados aumentou em ordens de grandeza e o problema virou ingestão em tempo real. É onde estou: telemetria de frota elétrica em produção e fundamentos de ML sendo construídos por baixo dela.',
-        markers: ['MQTT', 'Azure IoT Hub', 'Event Hub', 'scikit-learn', 'Next.js'],
+          'Os fluxos passaram a exigir uma fonte de verdade, então migrei para arquitetura de dados própria e passei a escrever APIs em vez de encadear nós. Hoje a frequência de dados é de telemetria: ingestão em tempo real de frota elétrica, com fundamentos de ML sendo construídos por baixo.',
+        markers: ['FastAPI', 'Supabase', 'PostgreSQL', 'MQTT', 'Azure IoT Hub', 'scikit-learn'],
       },
     ],
   },

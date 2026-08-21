@@ -351,24 +351,27 @@ export const en: PortfolioContent = {
     phases: [
       {
         index: '01',
-        title: 'Automation & CRM',
+        period: '2022 to 2024',
+        title: 'Automation & integration',
         description:
-          'I started by connecting systems that did not talk to each other: CRM, customer service and WhatsApp. I learned that most of an automation problem is inconsistent data, not flow logic.',
-        markers: ['n8n', 'Bitrix24', 'Chatwoot', 'WhatsApp Business API'],
+          'I started as a freelance developer, writing APIs and integrations in Python and Go alongside automation bots. That is where I learned that most of an integration problem is inconsistent data, not flow logic: handling it at the source cut processing failures by 30%.',
+        markers: ['Python', 'Go', 'REST', 'Selenium', 'PyAutoGUI'],
       },
       {
         index: '02',
-        title: 'Integration & Data',
+        period: '2026',
+        title: 'Applied AI & CRM',
         description:
-          'The flows started demanding a source of truth. I moved to owning the data architecture and writing APIs instead of chaining nodes, with contracts, tests and a schema thought through up front.',
-        markers: ['FastAPI', 'Supabase', 'PostgreSQL', 'AI agents', 'pytest'],
+          'I joined Milen.ia connecting systems that did not talk to each other: CRM, customer service and WhatsApp. Conversational agents and automation workflows in production, with the quality bar set by the source data rather than the prompt.',
+        markers: ['n8n', 'Bitrix24', 'Chatwoot', 'WhatsApp Business API', 'LLM'],
       },
       {
         index: '03',
-        title: 'IoT Telemetry & ML',
+        period: '2026 · now',
+        title: 'Data & telemetry',
         description:
-          'Data frequency grew by orders of magnitude and the problem became real-time ingestion. That is where I am: electric fleet telemetry in production, with ML fundamentals being built underneath it.',
-        markers: ['MQTT', 'Azure IoT Hub', 'Event Hub', 'scikit-learn', 'Next.js'],
+          'The flows started demanding a source of truth, so I moved to owning the data architecture and writing APIs instead of chaining nodes. Today the data frequency is telemetry: real-time ingestion from an electric fleet, with ML fundamentals being built underneath.',
+        markers: ['FastAPI', 'Supabase', 'PostgreSQL', 'MQTT', 'Azure IoT Hub', 'scikit-learn'],
       },
     ],
   },

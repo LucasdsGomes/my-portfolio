@@ -43,6 +43,8 @@ export interface StackGroup {
 export interface TimelinePhase {
   /** a ordem carrega informação aqui, por isso é numerada */
   index: string;
+  /** recorte de tempo da fase */
+  period: string;
   title: string;
   description: string;
   markers: readonly string[];
