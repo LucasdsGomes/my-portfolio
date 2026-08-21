@@ -109,8 +109,9 @@ export interface PortfolioContent {
     credentials: {
       eyebrow: string;
       issuer: string;
-      count: number;
       summary: string;
+      /** a contagem exibida sai daqui, não de um campo separado */
+      items: readonly string[];
     };
   };
   focus: {

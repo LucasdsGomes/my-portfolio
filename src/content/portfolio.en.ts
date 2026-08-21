@@ -94,9 +94,21 @@ export const en: PortfolioContent = {
     credentials: {
       eyebrow: '// certifications',
       issuer: 'Viver de IA',
-      count: 11,
       summary:
         'Applied training in AI agents on n8n, RAG, multi-agent platforms and SQL with AI. Every certificate turned into work shipped to production.',
+      items: [
+        'AI agents in n8n',
+        'RAG in practice',
+        'Multi-agent customer service platform',
+        'Building a WhatsApp SDR with n8n',
+        'Automated blog with AI 3.0',
+        'n8n chatbot',
+        'SQL with AI',
+        'Social media automation at scale',
+        'Lovable in practice',
+        'Perplexity track',
+        'Make configuration assistant',
+      ],
     },
   },
 

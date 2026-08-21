@@ -95,9 +95,21 @@ export const pt: PortfolioContent = {
     credentials: {
       eyebrow: '// certificações',
       issuer: 'Viver de IA',
-      count: 11,
       summary:
         'Formação aplicada em agentes de IA no n8n, RAG, plataformas multiagente e SQL com IA. Cada certificado virou trabalho entregue em produção.',
+      items: [
+        'Agentes de IA no n8n',
+        'Como fazer RAG na prática',
+        'Plataforma de atendimento multiagentes com AI',
+        'Crie um SDR no WhatsApp com n8n',
+        'Blog automático com IA 3.0',
+        'Chatbot n8n',
+        'Formação de SQL com AI',
+        'Mega automação de redes sociais',
+        'Lovable na prática',
+        'Formação de Perplexity',
+        'Assistente de configuração do Make',
+      ],
     },
   },
 

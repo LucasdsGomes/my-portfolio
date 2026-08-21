@@ -48,21 +48,46 @@ export function About({ content }: AboutProps) {
             </p>
           </div>
 
-          <div
-            className="reveal rounded-panel border border-line bg-surface px-5 py-4"
+          <details
+            className="reveal group rounded-panel border border-line bg-surface"
             data-reveal-item
           >
-            <div className="flex items-center justify-between gap-4">
-              <p className="font-mono text-2xs tracking-[0.14em] text-accent lowercase">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 [&::-webkit-details-marker]:hidden">
+              <span className="font-mono text-2xs tracking-[0.14em] text-accent lowercase">
                 {about.credentials.eyebrow}
-              </p>
-              <p className="tabular font-mono text-2xs text-accent-warm">
-                {String(about.credentials.count).padStart(2, '0')}
-                <span className="ml-1.5 text-fg-muted">{about.credentials.issuer}</span>
-              </p>
+              </span>
+              <span className="flex items-center gap-2 font-mono text-2xs">
+                <span className="tabular text-accent-warm">
+                  {String(about.credentials.items.length).padStart(2, '0')}
+                </span>
+                <span className="text-fg-muted">{about.credentials.issuer}</span>
+                {/* o <summary> já anuncia aberto/fechado; isto é o sinal visual */}
+                <span
+                  aria-hidden="true"
+                  className="w-3 text-center text-fg-muted transition-colors group-open:text-accent"
+                >
+                  <span className="group-open:hidden">+</span>
+                  <span className="hidden group-open:inline">−</span>
+                </span>
+              </span>
+            </summary>
+
+            <div className="border-t border-line px-5 py-4">
+              <p className="text-2xs text-fg-muted">{about.credentials.summary}</p>
+
+              <ul className="mt-4 space-y-2">
+                {about.credentials.items.map((credential) => (
+                  <li key={credential} className="flex items-start gap-2.5 text-2xs text-fg">
+                    <span
+                      aria-hidden="true"
+                      className="mt-[0.55em] h-px w-2.5 shrink-0 bg-accent/60"
+                    />
+                    {credential}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <p className="mt-3 text-2xs text-fg-muted">{about.credentials.summary}</p>
-          </div>
+          </details>
         </div>
       </div>
     </SectionShell>
