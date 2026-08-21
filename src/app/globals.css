@@ -1,0 +1,203 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------
+   TOKENS — instrumentação: grafite, azul-sinal, âmbar.
+   Toda cor da página nasce aqui. Nenhum hex solto em componente.
+------------------------------------------------------------------ */
+@theme {
+  --color-bg: #0b0d10;
+  --color-surface: #12161b;
+  --color-surface-2: #1a2029;
+  --color-line: #242c36;
+  --color-fg: #edf2f6;
+  --color-fg-muted: #8994a1;
+  --color-accent: #5ad1ff;
+  --color-accent-warm: #ffc24b;
+  --color-ok: #3fcf8e;
+
+  --font-display: var(--font-saira), 'Saira', system-ui, sans-serif;
+  --font-body: var(--font-plex), 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), 'JetBrains Mono', ui-monospace, monospace;
+
+  /* escala 12 / 14 / 16 / 20 / 28 / 40 / 64 */
+  --text-2xs: 0.75rem;
+  --text-2xs--line-height: 1.4;
+  --text-xs: 0.875rem;
+  --text-xs--line-height: 1.5;
+  --text-base: 1rem;
+  --text-base--line-height: 1.65;
+  --text-lg: 1.25rem;
+  --text-lg--line-height: 1.5;
+  --text-xl: 1.75rem;
+  --text-xl--line-height: 1.15;
+  --text-2xl: 2.5rem;
+  --text-2xl--line-height: 1.05;
+  --text-3xl: 4rem;
+  --text-3xl--line-height: 1.05;
+
+  --radius-panel: 4px;
+  --container-shell: 1200px;
+
+  --ease-sweep: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ------------------------------------------------------------------
+   BASE
+------------------------------------------------------------------ */
+@layer base {
+  :root {
+    color-scheme: dark;
+    --gutter: 1.5rem;
+    --section-gap: 4.5rem; /* 72px mobile */
+  }
+
+  @media (width >= 48rem) {
+    :root {
+      --section-gap: 7.5rem; /* 120px desktop */
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* header fixo + barra de sinal */
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* malha de instrumento — 1px, praticamente subliminar */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(to right, var(--color-fg) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-fg) 1px, transparent 1px);
+    background-size: 96px 96px;
+    opacity: 0.025;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.05;
+  }
+
+  /* tabelas numéricas alinhadas — leitura de instrumento */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+  }
+}
+
+/* ------------------------------------------------------------------
+   MOVIMENTO — reveal de seção e sweep de ignição.
+   Tudo desligável por prefers-reduced-motion.
+------------------------------------------------------------------ */
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 520ms var(--ease-sweep),
+      transform 520ms var(--ease-sweep);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal[data-visible='true'] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hairline {
+    border: 1px solid var(--color-line);
+  }
+
+  /* barra de sinal do header — o único movimento contínuo da página */
+  .signal-sweep {
+    animation: signal-scroll 22s linear infinite;
+  }
+
+  /* sweep de ignição: preenchimento da escala do mostrador */
+  .ignite-bar {
+    transform-origin: left center;
+    animation: ignite-fill 900ms var(--ease-sweep) both;
+    animation-delay: var(--ignite-delay, 0ms);
+  }
+
+  /* sweep de ignição: leitura textual revelada da esquerda para a direita */
+  .ignite-wipe {
+    animation: ignite-reveal 900ms var(--ease-sweep) both;
+    animation-delay: var(--ignite-delay, 0ms);
+  }
+}
+
+@keyframes signal-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes ignite-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes ignite-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
