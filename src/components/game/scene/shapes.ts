@@ -62,24 +62,33 @@ interface WallOptions {
   seed: number;
 }
 
-/** Parede vertical de poço: a descida passa entre duas destas. */
-export function wall({ side, width, height, reach, jag, step, seed }: WallOptions): string {
+/**
+ * Pontos da borda de uma parede vertical de poço: onde a rocha encontra o
+ * vazio. Servem para desenhar a parede e para plantar coisas na borda dela.
+ */
+export function wallEdge({ side, width, height, reach, jag, step, seed }: WallOptions): [number, number][] {
   const rand = seeded(seed);
   let x = reach;
-  const edge = side === 'left' ? 0 : width;
   const toX = (d: number) => (side === 'left' ? d : width - d);
-  const parts = [`M${edge} 0`, `L${f(toX(reach))} 0`];
+  const points: [number, number][] = [[toX(reach), 0]];
 
   for (let y = step; y <= height + step; y += step) {
     x += (rand() - 0.5) * jag;
     x += (reach - x) * 0.22;
     // de vez em quando, uma saliência: degrau de rocha
     if (rand() > 0.86) x += jag * 0.6;
-    parts.push(`L${f(toX(Math.max(x, 4)))} ${f(Math.min(y, height))}`);
+    points.push([toX(Math.max(x, 4)), Math.min(y, height)]);
   }
 
-  parts.push(`L${edge} ${height}`, 'Z');
-  return parts.join(' ');
+  return points;
+}
+
+/** Parede vertical de poço: a descida passa entre duas destas. */
+export function wall(options: WallOptions): string {
+  const { side, width, height } = options;
+  const edge = side === 'left' ? 0 : width;
+  const points = wallEdge(options);
+  return [`M${edge} 0`, ...points.map(([x, y]) => `L${f(x)} ${f(y)}`), `L${edge} ${height}`, 'Z'].join(' ');
 }
 
 interface DripOptions {

@@ -54,15 +54,16 @@ PART_BOXES: dict[str, tuple[int, int, int, int]] = {
 }
 
 
-def save_variants(im: Image.Image, base: Path, widths: tuple[int, ...]) -> None:
+def save_variants(im: Image.Image, base: Path, widths: tuple[int, ...]) -> list[int]:
+    """Gera as larguras pedidas que cabem na imagem, mais a nativa. Devolve as geradas."""
     base.parent.mkdir(parents=True, exist_ok=True)
-    for w in widths:
-        if w > im.width:
-            continue
+    made = sorted({w for w in widths if w < im.width} | {im.width}, reverse=True)
+    for w in made:
         h = round(im.height * w / im.width)
         resized = im if w == im.width else im.resize((w, h), Image.Resampling.LANCZOS)
         resized.save(f'{base}-{w}.avif', quality=62, speed=4)
         resized.save(f'{base}-{w}.webp', quality=82, method=6)
+    return made
 
 
 def lqip(im: Image.Image) -> str:
@@ -180,19 +181,50 @@ def cut_part(sheet: np.ndarray, bg: np.ndarray, box: tuple[int, int, int, int]) 
     return Image.fromarray(rgba, 'RGBA').crop((xs.min(), ys.min(), xs.max() + 1, ys.max() + 1))
 
 
+# nomes como vieram -> nome publicado. Sem recompressão: os efeitos já são
+# curtos e a música, em 192 kbps, pesa cerca de 1,4 MB por minuto.
+AUDIO = {
+    'tema-da-floresta.mp3': 'musica-floresta.mp3',
+    'tema-da-floresta(outraopcao).mp3': 'musica-floresta-alt.mp3',
+    'tema-do-abismo.mp3': 'musica-abismo.mp3',
+    'menu-mover.mp3': 'menu-mover.mp3',
+    'menu-confirmar.mp3': 'menu-confirmar.mp3',
+    'regiao.mp3': 'regiao.mp3',
+    'pulo.mp3': 'pulo.mp3',
+    'pouso.mp3': 'pouso.mp3',
+    'cutucar.mp3': 'cutucar-1.mp3',
+    'cutucar2.mp3': 'cutucar-2.mp3',
+}
+
+
 def main() -> None:
-    manifest: dict[str, dict] = {'scenes': {}, 'creatures': {}, 'parts': {}}
+    manifest: dict[str, dict] = {'scenes': {}, 'creatures': {}, 'parts': {}, 'audio': {}}
+
+    (OUT / 'audio').mkdir(parents=True, exist_ok=True)
+    for source, target in AUDIO.items():
+        path = SRC / 'musica' / source
+        if not path.exists():
+            print('áudio ausente', source)
+            continue
+        (OUT / 'audio' / target).write_bytes(path.read_bytes())
+        manifest['audio'][target.removesuffix('.mp3')] = {'bytes': path.stat().st_size}
+        print('áudio', target)
 
     for path in sorted((SRC / 'cenarios').glob('*.png')):
         im = Image.open(path).convert('RGB')
-        save_variants(im, OUT / 'cenarios' / path.stem, SCENE_WIDTHS)
-        manifest['scenes'][path.stem] = {'width': im.width, 'height': im.height, 'lqip': lqip(im)}
+        widths = save_variants(im, OUT / 'cenarios' / path.stem, SCENE_WIDTHS)
+        manifest['scenes'][path.stem] = {
+            'width': im.width,
+            'height': im.height,
+            'widths': widths,
+            'lqip': lqip(im),
+        }
         print('cenário', path.stem, im.size)
 
     for path in sorted((SRC / 'criaturas').glob('*.png')):
         im = Image.open(path).convert('RGB')
-        save_variants(im, OUT / 'criaturas' / path.stem, CREATURE_WIDTHS)
-        manifest['creatures'][path.stem] = {'width': im.width, 'height': im.height}
+        widths = save_variants(im, OUT / 'criaturas' / path.stem, CREATURE_WIDTHS)
+        manifest['creatures'][path.stem] = {'width': im.width, 'height': im.height, 'widths': widths}
         print('criatura', path.stem, im.size)
 
     sheet_im = Image.open(SRC / 'protagonista' / 'partes.png').convert('RGB')

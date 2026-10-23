@@ -7,10 +7,11 @@ import { alternateLocale, pathForLocale, textPathForLocale } from '@/content';
 import { SceneCover } from './scene/Scene';
 import { Motes } from './scene/Motes';
 import { Ornament } from './Ornament';
-import { FireflyRig } from './rig/FireflyRig';
+import { PlayerFirefly } from './player/PlayerFirefly';
 import { RIG_FEET } from './rig/skeleton';
 import { JOURNEY_START } from './journey/events';
 import { useSceneScroll } from './useSceneScroll';
+import { playSfx } from './audio/sound';
 import { useMediaQuery } from './useMediaQuery';
 
 interface TitleScreenProps {
@@ -20,6 +21,9 @@ interface TitleScreenProps {
 
 /** Topo plano da borda de pedra pintada em 00-titulo, em fração da imagem. */
 const LEDGE = { x: 0.335, y: 0.752 } as const;
+/** Onde dá para andar na borda; passar da ponta direita é cair no poço. */
+const LEDGE_RANGE = [0.17, 0.455] as const;
+const jumpIntoShaft = () => window.dispatchEvent(new CustomEvent(JOURNEY_START));
 
 const IGNORED_KEYS = new Set(['Tab', 'Shift', 'Control', 'Alt', 'Meta', 'CapsLock']);
 const SCROLL_KEYS = new Set([' ', 'ArrowDown', 'PageDown', 'ArrowUp', 'PageUp']);
@@ -78,10 +82,14 @@ export function TitleScreen({ content, locale }: TitleScreenProps) {
     const next = items[(index + delta + items.length) % items.length];
     event.preventDefault();
     next?.focus();
+    playSfx('menu-mover');
   };
 
   // quem conduz a descida é o diretor da jornada; o menu só dá a largada
-  const beginJourney = () => window.dispatchEvent(new CustomEvent(JOURNEY_START));
+  const beginJourney = () => {
+    playSfx('menu-confirmar');
+    window.dispatchEvent(new CustomEvent(JOURNEY_START));
+  };
 
   const itemClass =
     'menu-item group inline-flex min-h-11 items-center gap-4 font-title text-sm tracking-[0.28em] text-bone-muted uppercase transition-colors duration-300 hover:text-bone focus-visible:text-glow focus-visible:outline-none sm:text-base';
@@ -90,6 +98,7 @@ export function TitleScreen({ content, locale }: TitleScreenProps) {
     <section
       ref={sectionRef}
       id="topo"
+      data-music="floresta"
       aria-labelledby="title-name"
       className="relative h-svh min-h-[34rem] overflow-hidden"
       onClick={phase === 'prompt' ? () => setPhase('menu') : undefined}
@@ -99,9 +108,11 @@ export function TitleScreen({ content, locale }: TitleScreenProps) {
         priority
         focusClassName="[--fx:0.5] [--fy:0.55] portrait:[--fx:0.3]"
       >
-        <FireflyRig
-          idle
+        <PlayerFirefly
           anchor="title"
+          label={game.firefly.poke}
+          range={LEDGE_RANGE}
+          onExitRight={jumpIntoShaft}
           className="absolute h-[21%]"
           style={{
             left: `${LEDGE.x * 100}%`,
@@ -123,8 +134,10 @@ export function TitleScreen({ content, locale }: TitleScreenProps) {
         className="pointer-events-none absolute inset-x-0 top-0 h-[70%] bg-[radial-gradient(ellipse_55%_60%_at_50%_32%,rgba(3,6,14,0.62),transparent_75%)]"
       />
 
+      {/* a coluna cobre a tela inteira, então deixa o clique passar para o
+          vagalume; só o menu e o aviso voltam a receber clique */}
       <div
-        className="relative z-10 flex h-full flex-col items-center px-6 pt-[15svh] text-center"
+        className="pointer-events-none relative z-10 flex h-full flex-col items-center px-6 pt-[15svh] text-center"
         style={{ opacity: 'calc(1 - var(--scroll, 0) / 420)' }}
       >
         <p
@@ -151,7 +164,7 @@ export function TitleScreen({ content, locale }: TitleScreenProps) {
           {game.title.kicker}
         </p>
 
-        <div className="mt-[9svh] flex min-h-48 flex-col items-center">
+        <div className="pointer-events-auto mt-[9svh] flex min-h-48 flex-col items-center">
           {phase === 'prompt' ? (
             <button
               type="button"
@@ -190,7 +203,11 @@ export function TitleScreen({ content, locale }: TitleScreenProps) {
                 </li>
               </ul>
               {coarse ? null : (
-                <p className="mt-6 text-sm text-bone-muted italic">{game.title.controlsHint}</p>
+                <>
+                  <p className="mt-6 text-sm text-bone-muted italic">{game.title.controlsHint}</p>
+                  <p className="mt-1 text-sm text-bone-muted italic">{game.firefly.controls}</p>
+                  <p className="mt-1 text-sm text-bone-muted italic">{game.sound.hint}</p>
+                </>
               )}
             </nav>
           )}

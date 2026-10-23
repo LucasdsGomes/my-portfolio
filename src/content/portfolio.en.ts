@@ -457,5 +457,14 @@ export const en: PortfolioContent = {
     },
     skipToJourney: 'Skip to the journey',
     skipScene: 'Skip scene',
+    sound: {
+      on: 'Turn sound off',
+      off: 'Turn sound on',
+      hint: 'M turns sound on and off',
+    },
+    firefly: {
+      poke: 'Poke the firefly',
+      controls: 'A D or ← → to walk · W to jump · click the firefly',
+    },
   },
 };

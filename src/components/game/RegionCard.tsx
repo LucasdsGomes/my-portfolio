@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import type { GameRegion } from '@/types/portfolio';
 import { Ornament } from './Ornament';
+import { playSfx } from './audio/sound';
 
 interface RegionCardProps {
   id: string;
@@ -31,6 +32,7 @@ export function RegionCard({ id, region }: RegionCardProps) {
       ([entry]) => {
         if (!entry?.isIntersecting) return;
         node.dataset.state = 'shown';
+        playSfx('regiao');
         observer.disconnect();
       },
       { threshold: 0.6 },

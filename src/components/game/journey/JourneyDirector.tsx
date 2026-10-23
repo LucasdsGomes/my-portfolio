@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { FireflyRig } from '../rig/FireflyRig';
 import { FEET_ORIGIN, SKELETON, type JointSpec } from '../rig/skeleton';
 import { JOURNEY_START } from './events';
+import { playSfx } from '../audio/sound';
 
 interface JourneyDirectorProps {
   /** vagalume de onde a cena parte */
@@ -86,6 +87,7 @@ export function JourneyDirector({ from, to, sectionId, skipLabel }: JourneyDirec
       const root = document.documentElement;
       const previousBehavior = root.style.scrollBehavior;
       root.style.scrollBehavior = 'auto';
+      root.dataset.cinematic = 'true';
 
       const vw = window.innerWidth;
       const vh = window.innerHeight;
@@ -114,6 +116,7 @@ export function JourneyDirector({ from, to, sectionId, skipLabel }: JourneyDirec
         source.style.visibility = '';
         gsap.set(actor, { autoAlpha: 0 });
         root.style.scrollBehavior = previousBehavior;
+        delete root.dataset.cinematic;
         playing = false;
         timeline.current = null;
         setRunning(false);
@@ -138,6 +141,7 @@ export function JourneyDirector({ from, to, sectionId, skipLabel }: JourneyDirec
 
       // 2 · salto: estica, sobe em arco para a frente, asas começam a bater
       tl.addLabel('leap', 0.3)
+        .call(() => playSfx('pulo'), [], 'leap')
         .to(body, { scaleY: 1.1, scaleX: 0.94, duration: 0.16, ease: 'power3.out' }, 'leap')
         .to(body, { scaleY: 1, scaleX: 1, duration: 0.3 }, 'leap+=0.16')
         .to(actor, { x: src.left + vw * 0.12, duration: 0.6, ease: 'power1.out' }, 'leap')
@@ -218,6 +222,7 @@ export function JourneyDirector({ from, to, sectionId, skipLabel }: JourneyDirec
 
       // 6 · pouso: o peso cai nos joelhos e o corpo assenta na pose de repouso
       tl.addLabel('land', 3.25)
+        .call(() => playSfx('pouso'), [], 'land')
         .to(body, { scaleY: 0.86, scaleX: 1.08, duration: 0.1, ease: 'power2.out' }, 'land')
         .to(body, { scaleY: 1, scaleX: 1, duration: 0.45, ease: 'elastic.out(1, 0.5)' }, 'land+=0.1')
         .to(J('thigh-near'), { rotation: -56, duration: 0.1 }, 'land')

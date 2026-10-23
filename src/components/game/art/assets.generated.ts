@@ -5,79 +5,183 @@ export const ART = {
     "00-titulo": {
       "width": 1672,
       "height": 941,
+      "widths": [
+        1672,
+        1280,
+        768
+      ],
       "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwBACdASoYAA4APu1krU6ppaSiMAgBMB2JYgCdMoMxgEmgMB51VB1aWAAA/vLZF4YfDm6qgmLfVJMetj6+Zbin41NbBjTlyoXZcWJeC2MReL6QTRD4AAAA"
     },
     "01-floresta-luminosa": {
       "width": 1672,
       "height": 941,
+      "widths": [
+        1672,
+        1280,
+        768
+      ],
       "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACQAwCdASoYAA4ALrV2u12jqampiYC0SgCdAEPCrc6ef3OfxuWAAP74Z+SEWNcTJ9wHoAi8Uyl2j4A+Ux4BzHNpyoAAAA=="
     },
     "02-minas-de-cristal": {
       "width": 1672,
       "height": 940,
+      "widths": [
+        1672,
+        1280,
+        768
+      ],
       "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABwAwCdASoYAA0APu1krU2ppaSiMAgBMB2JQBOgBaD0LwcI8AAA/u/jrj/8ugwJTWUzT+PrNNwdWKybRfOwUGlSbmQ8AsYZQor9OtI9mRdy10ZAzPR2gAAA"
     },
     "03-cavernas-profundas": {
       "width": 1672,
       "height": 941,
+      "widths": [
+        1672,
+        1280,
+        768
+      ],
       "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQBACdASoYAA4APu1kqk2ppaQiMAgBMB2JYgCdMoMYAE5UlI26K4KGKAD+8zMIdKud7qqJGo5/IOyW4svqxCC1Llbflp+vK5IvsoJduH4+7fQWZivxAwAA"
     },
     "04-reino-arcano": {
       "width": 1672,
       "height": 940,
+      "widths": [
+        1672,
+        1280,
+        768
+      ],
       "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAwCdASoYAA0APu1qrU8ppiQiMAgBMB2JZgAAYfDm5S9bBSfmyYowAP7y1pM5kWmR4Xiwxp88yexJvq4K1XtWQszBpejo1dtUNs5xd1scAA=="
     },
     "05-ruinas-antigas": {
       "width": 1672,
       "height": 941,
+      "widths": [
+        1672,
+        1280,
+        768
+      ],
       "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACQAwCdASoYAA4ALrV2u12jqampiYC0SgCdAEQ9kPpZ9m54/TgAAP74kkk9RliHj0DBgT0mY5EUJeQZcqi+8w1wbxbJYDAA"
     },
     "06-abismo": {
       "width": 1672,
       "height": 940,
+      "widths": [
+        1672,
+        1280,
+        768
+      ],
       "lqip": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAABQAgCdASoYAA0AA4BaJYwC7AEN9bQZRvD+wQAA/vkTMCEhgv1dVEJ4YZ8gIRqdvqYrL96RIgARAAAA"
+    },
+    "descida": {
+      "width": 941,
+      "height": 1672,
+      "widths": [
+        941,
+        768
+      ],
+      "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABQBQCdASoYACsAPu1kqE2ppaOiMAgBMB2JQBhAsZAb/x8VPmv0XVh+DqOz1vLrMM0QSnAA/vQpyZ5HyRQOyOl0m62+83ulvH38q3oJt7a4hV7oSq4879FtkOrmYlYBm64qmkwHvqsolyw5IDDl+KntHUUtmNcBHxa+khaAAAA="
     }
   },
   "creatures": {
     "agua-viva": {
       "width": 1254,
-      "height": 1254
+      "height": 1254,
+      "widths": [
+        1254,
+        768,
+        512,
+        320
+      ]
     },
     "chefe-cacador": {
       "width": 1254,
-      "height": 1254
+      "height": 1254,
+      "widths": [
+        1254,
+        768,
+        512,
+        320
+      ]
     },
     "chefe-colosso": {
       "width": 1254,
-      "height": 1254
+      "height": 1254,
+      "widths": [
+        1254,
+        768,
+        512,
+        320
+      ]
     },
     "chefe-devorador": {
       "width": 1254,
-      "height": 1254
+      "height": 1254,
+      "widths": [
+        1254,
+        768,
+        512,
+        320
+      ]
     },
     "chefe-guardiao": {
       "width": 1254,
-      "height": 1254
+      "height": 1254,
+      "widths": [
+        1254,
+        768,
+        512,
+        320
+      ]
     },
     "espectro": {
       "width": 1254,
-      "height": 1254
+      "height": 1254,
+      "widths": [
+        1254,
+        768,
+        512,
+        320
+      ]
     },
     "espirito": {
       "width": 1254,
-      "height": 1254
+      "height": 1254,
+      "widths": [
+        1254,
+        768,
+        512,
+        320
+      ]
     },
     "inseto-patrulha": {
       "width": 1254,
-      "height": 1254
+      "height": 1254,
+      "widths": [
+        1254,
+        768,
+        512,
+        320
+      ]
     },
     "inseto-voador": {
       "width": 1254,
-      "height": 1254
+      "height": 1254,
+      "widths": [
+        1254,
+        768,
+        512,
+        320
+      ]
     },
     "sentinela": {
       "width": 1254,
-      "height": 1254
+      "height": 1254,
+      "widths": [
+        1254,
+        768,
+        512,
+        320
+      ]
     }
   },
   "parts": {
@@ -148,6 +252,38 @@ export const ART = {
     "leg-foot-c": {
       "width": 137,
       "height": 127
+    }
+  },
+  "audio": {
+    "musica-floresta": {
+      "bytes": 1457642
+    },
+    "musica-floresta-alt": {
+      "bytes": 1457642
+    },
+    "musica-abismo": {
+      "bytes": 1457642
+    },
+    "menu-mover": {
+      "bytes": 13293
+    },
+    "menu-confirmar": {
+      "bytes": 49581
+    },
+    "regiao": {
+      "bytes": 121581
+    },
+    "pulo": {
+      "bytes": 25389
+    },
+    "pouso": {
+      "bytes": 25389
+    },
+    "cutucar-1": {
+      "bytes": 13293
+    },
+    "cutucar-2": {
+      "bytes": 13293
     }
   }
 } as const;

@@ -5,6 +5,7 @@ import { Descent } from './Descent';
 import { Hud } from './Hud';
 import { ProfileRegion } from './regions/ProfileRegion';
 import { JourneyDirector } from './journey/JourneyDirector';
+import { SoundControl } from './audio/SoundControl';
 
 interface GamePageProps {
   locale: Locale;
@@ -35,6 +36,7 @@ export function GamePage({ locale }: GamePageProps) {
       </div>
 
       <Hud content={content} locale={locale} />
+      <SoundControl labels={content.game.sound} />
       <JourneyDirector from="title" to="perfil" sectionId="perfil" skipLabel={content.game.skipScene} />
     </>
   );

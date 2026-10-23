@@ -458,5 +458,14 @@ export const pt: PortfolioContent = {
     },
     skipToJourney: 'Pular para a jornada',
     skipScene: 'Pular cena',
+    sound: {
+      on: 'Desligar o som',
+      off: 'Ligar o som',
+      hint: 'M liga e desliga o som',
+    },
+    firefly: {
+      poke: 'Cutucar o vagalume',
+      controls: 'A D ou ← → para andar · W para pular · clique no vagalume',
+    },
   },
 };

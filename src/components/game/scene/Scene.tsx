@@ -3,10 +3,9 @@ import { ART } from '../art/assets.generated';
 
 export type SceneName = keyof typeof ART.scenes;
 
-const WIDTHS = [768, 1280, 1672] as const;
-
+// só as larguras que o pipeline realmente gerou para esta pintura
 const srcset = (scene: SceneName, ext: 'avif' | 'webp') =>
-  WIDTHS.map((w) => `/game/cenarios/${scene}-${w}.${ext} ${w}w`).join(', ');
+  ART.scenes[scene].widths.map((w) => `/game/cenarios/${scene}-${w}.${ext} ${w}w`).join(', ');
 
 interface ScenePictureProps {
   scene: SceneName;
@@ -21,14 +20,15 @@ interface ScenePictureProps {
  * então o cenário nunca entra como um retângulo preto.
  */
 export function ScenePicture({ scene, priority = false, className = '', style }: ScenePictureProps) {
-  const { width, height, lqip } = ART.scenes[scene];
+  const { width, height, lqip, widths } = ART.scenes[scene];
+  const fallback = widths.find((w) => w <= 1280) ?? widths[0];
 
   return (
     <picture>
       <source type="image/avif" srcSet={srcset(scene, 'avif')} sizes="100vw" />
       <source type="image/webp" srcSet={srcset(scene, 'webp')} sizes="100vw" />
       <img
-        src={`/game/cenarios/${scene}-1280.webp`}
+        src={`/game/cenarios/${scene}-${fallback}.webp`}
         alt=""
         width={width}
         height={height}

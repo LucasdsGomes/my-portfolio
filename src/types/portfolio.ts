@@ -100,6 +100,8 @@ export interface GameContent {
   };
   skipToJourney: string;
   skipScene: string;
+  firefly: { poke: string; controls: string };
+  sound: { on: string; off: string; hint: string };
 }
 
 export interface PortfolioContent {

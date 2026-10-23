@@ -31,3 +31,6 @@ next-env.d.ts
 
 # Playwright MCP (screenshots locais)
 .playwright-mcp/
+
+# cache incremental do TypeScript
+*.tsbuildinfo

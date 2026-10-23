@@ -5,7 +5,7 @@ import type { GameRegionId, Locale, PortfolioContent } from '@/types/portfolio';
 import { alternateLocale, pathForLocale, textPathForLocale } from '@/content';
 
 /** Região do jogo → id da seção na página (os mesmos da versão em texto). */
-export const REGION_SECTIONS: Readonly<Record<GameRegionId, string>> = {
+const REGION_SECTIONS: Readonly<Record<GameRegionId, string>> = {
   profile: 'perfil',
   focus: 'foco',
   projects: 'projetos',
@@ -107,8 +107,9 @@ export function Hud({ content, locale }: HudProps) {
             alt=""
             width={377}
             height={304}
-            className="absolute top-[18px] left-[7px] w-[58px] max-w-none"
-            style={{ clipPath: 'circle(25px at 17px 39px)' }}
+            className="absolute top-[-28px] left-[3px] w-[110px] max-w-none"
+            /* recorta só a esfera da cabeça, com o olho, dentro do anel */
+            style={{ clipPath: 'circle(25px at 29px 60px)' }}
           />
         </div>
         <div className="flex gap-1.5">
@@ -122,7 +123,9 @@ export function Hud({ content, locale }: HudProps) {
         </div>
       </div>
 
-      <nav aria-label={content.game.title.menuLabel} className="hud-links pointer-events-auto flex gap-1">
+      {/* deixa espaço à direita para o botão de som, que fica fixo no canto.
+          No celular não cabe: os mesmos links estão no menu do título */}
+      <nav aria-label={content.game.title.menuLabel} className="hud-links pointer-events-auto mr-16 hidden gap-1 sm:flex">
         <a
           href={textPathForLocale(locale)}
           className="inline-flex min-h-11 items-center rounded-sm px-3 font-title text-xs tracking-[0.2em] text-bone-muted uppercase hover:text-bone"

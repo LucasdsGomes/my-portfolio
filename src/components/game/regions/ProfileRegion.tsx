@@ -1,7 +1,10 @@
 import type { PortfolioContent } from '@/types/portfolio';
 import { ScenePicture } from '../scene/Scene';
 import { Motes } from '../scene/Motes';
-import { FireflyRig } from '../rig/FireflyRig';
+import { PlayerFirefly } from '../player/PlayerFirefly';
+
+/** a Clareira inteira é chão: dá para andar de uma ponta à outra do conteúdo */
+const GROUND_RANGE = [0.02, 0.98] as const;
 import { Dialogue } from '../Dialogue';
 import { Ornament } from '../Ornament';
 import { RegionCard } from '../RegionCard';
@@ -22,6 +25,7 @@ export function ProfileRegion({ content }: ProfileRegionProps) {
   return (
     <section
       id="perfil"
+      data-music="floresta"
       tabIndex={-1}
       aria-labelledby="perfil-title"
       className="relative min-h-svh overflow-hidden py-24 outline-none sm:py-32"
@@ -30,17 +34,23 @@ export function ProfileRegion({ content }: ProfileRegionProps) {
       {/* escurece o centro para diálogo e tabuleta lerem sobre a floresta */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(3,6,14,0.55),rgba(3,6,14,0.25)_35%,rgba(3,6,14,0.7))]"
+        className="absolute inset-0 bg-[linear-gradient(to_bottom,#03060e,rgba(3,6,14,0.45)_14%,rgba(3,6,14,0.25)_35%,rgba(3,6,14,0.7))]"
       />
       <Motes density={1.4} rise={6} tint="150, 240, 200" />
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-8">
+      <div data-ground className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-8">
         <RegionCard id="perfil-title" region={game.regions.profile} />
 
         <div className="mt-16 grid items-end gap-10 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-6">
           {/* o vagalume pousado numa pedra, olhando para quem lê */}
           <div className="mx-auto flex w-40 flex-col items-center lg:w-full">
-            <FireflyRig idle anchor="perfil" className="h-52 lg:h-64" />
+            <PlayerFirefly
+              anchor="perfil"
+              label={game.firefly.poke}
+              range={GROUND_RANGE}
+              ground="[data-ground]"
+              className="relative z-20 h-52 lg:h-64"
+            />
             <svg viewBox="0 0 200 40" className="-mt-4 w-40 lg:w-48" aria-hidden="true" focusable="false">
               <path d="M8 40 C 20 12, 60 4, 104 6 C 150 8, 186 18, 196 40 Z" fill="#01050b" />
             </svg>
