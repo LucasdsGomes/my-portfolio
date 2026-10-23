@@ -153,6 +153,79 @@
 }
 
 /* ------------------------------------------------------------------
+   MARIONETE DO VAGALUME
+   O repouso usa a propriedade `rotate`, que se soma ao `transform` de
+   cada junta sem apagá-lo: a pose base fica no transform, a respiração
+   por cima. As coreografias (GSAP) mexem só no transform do ator.
+------------------------------------------------------------------ */
+.firefly-rig:not([data-ready]) {
+  visibility: hidden;
+}
+
+[data-idle] [data-rig-body] {
+  animation: rig-breathe 3.6s var(--ease-drift) infinite;
+}
+
+[data-idle] [data-joint='wing-upper'] {
+  animation: rig-wing 3.2s ease-in-out infinite;
+}
+
+[data-idle] [data-joint='wing-lower'] {
+  animation: rig-wing 3.2s ease-in-out -0.4s infinite;
+}
+
+[data-idle] [data-joint='head'] {
+  animation: rig-head 4.4s ease-in-out infinite;
+}
+
+[data-idle] [data-joint='abdomen'] {
+  animation: rig-abdomen 3.6s var(--ease-drift) infinite;
+}
+
+@keyframes rig-breathe {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -6px;
+  }
+}
+
+@keyframes rig-wing {
+  0%,
+  100% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: -6deg;
+  }
+}
+
+@keyframes rig-head {
+  0%,
+  100% {
+    rotate: 0deg;
+  }
+  40% {
+    rotate: 2.5deg;
+  }
+  70% {
+    rotate: -1deg;
+  }
+}
+
+@keyframes rig-abdomen {
+  0%,
+  100% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 3deg;
+  }
+}
+
+/* ------------------------------------------------------------------
    TELA DE TÍTULO
 ------------------------------------------------------------------ */
 .title-rise {

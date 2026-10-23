@@ -99,6 +99,7 @@ export interface GameContent {
     tabletTitle: string;
   };
   skipToJourney: string;
+  skipScene: string;
 }
 
 export interface PortfolioContent {

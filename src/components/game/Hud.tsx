@@ -3,7 +3,6 @@
 import { useEffect, useRef } from 'react';
 import type { GameRegionId, Locale, PortfolioContent } from '@/types/portfolio';
 import { alternateLocale, pathForLocale, textPathForLocale } from '@/content';
-import { Firefly } from './Firefly';
 
 /** Região do jogo → id da seção na página (os mesmos da versão em texto). */
 export const REGION_SECTIONS: Readonly<Record<GameRegionId, string>> = {
@@ -102,7 +101,15 @@ export function Hud({ content, locale }: HudProps) {
               className="drop-shadow-[0_0_4px_rgba(253,208,95,0.8)]"
             />
           </svg>
-          <Firefly uid="ff-hud" className="absolute inset-2.5" />
+          {/* eslint-disable-next-line @next/next/no-img-element -- retrato decorativo do HUD */}
+          <img
+            src="/game/vagalume/head.webp"
+            alt=""
+            width={377}
+            height={304}
+            className="absolute top-[18px] left-[7px] w-[58px] max-w-none"
+            style={{ clipPath: 'circle(25px at 17px 39px)' }}
+          />
         </div>
         <div className="flex gap-1.5">
           {REGIONS.map((region) => (

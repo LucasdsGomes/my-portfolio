@@ -457,5 +457,6 @@ export const pt: PortfolioContent = {
       tabletTitle: 'Inscrições da clareira',
     },
     skipToJourney: 'Pular para a jornada',
+    skipScene: 'Pular cena',
   },
 };

@@ -456,5 +456,6 @@ export const en: PortfolioContent = {
       tabletTitle: 'Glade inscriptions',
     },
     skipToJourney: 'Skip to the journey',
+    skipScene: 'Skip scene',
   },
 };

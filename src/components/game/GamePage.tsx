@@ -4,6 +4,7 @@ import { TitleScreen } from './TitleScreen';
 import { Descent } from './Descent';
 import { Hud } from './Hud';
 import { ProfileRegion } from './regions/ProfileRegion';
+import { JourneyDirector } from './journey/JourneyDirector';
 
 interface GamePageProps {
   locale: Locale;
@@ -20,7 +21,7 @@ export function GamePage({ locale }: GamePageProps) {
 
   return (
     <>
-      <TitleScreen content={content} locale={locale} journeyId="perfil" />
+      <TitleScreen content={content} locale={locale} />
       <Descent />
       <ProfileRegion content={content} />
 
@@ -34,6 +35,7 @@ export function GamePage({ locale }: GamePageProps) {
       </div>
 
       <Hud content={content} locale={locale} />
+      <JourneyDirector from="title" to="perfil" sectionId="perfil" skipLabel={content.game.skipScene} />
     </>
   );
 }

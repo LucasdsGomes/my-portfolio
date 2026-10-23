@@ -1,7 +1,7 @@
 import type { PortfolioContent } from '@/types/portfolio';
-import { ChamberBackdrop } from '../scene/ChamberBackdrop';
+import { ScenePicture } from '../scene/Scene';
 import { Motes } from '../scene/Motes';
-import { Firefly } from '../Firefly';
+import { FireflyRig } from '../rig/FireflyRig';
 import { Dialogue } from '../Dialogue';
 import { Ornament } from '../Ornament';
 import { RegionCard } from '../RegionCard';
@@ -26,17 +26,22 @@ export function ProfileRegion({ content }: ProfileRegionProps) {
       aria-labelledby="perfil-title"
       className="relative min-h-svh overflow-hidden py-24 outline-none sm:py-32"
     >
-      <ChamberBackdrop />
-      <Motes density={1.4} rise={6} />
+      <ScenePicture scene="01-floresta-luminosa" className="absolute inset-0 h-full w-full" />
+      {/* escurece o centro para diálogo e tabuleta lerem sobre a floresta */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(3,6,14,0.55),rgba(3,6,14,0.25)_35%,rgba(3,6,14,0.7))]"
+      />
+      <Motes density={1.4} rise={6} tint="150, 240, 200" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-8">
         <RegionCard id="perfil-title" region={game.regions.profile} />
 
         <div className="mt-16 grid items-end gap-10 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-6">
           {/* o vagalume pousado numa pedra, olhando para quem lê */}
-          <div className="mx-auto w-36 lg:w-full">
-            <Firefly uid="ff-profile" className="w-full drop-shadow-[0_0_30px_rgba(253,208,95,0.25)]" />
-            <svg viewBox="0 0 200 40" className="-mt-3 w-full" aria-hidden="true" focusable="false">
+          <div className="mx-auto flex w-40 flex-col items-center lg:w-full">
+            <FireflyRig idle anchor="perfil" className="h-52 lg:h-64" />
+            <svg viewBox="0 0 200 40" className="-mt-4 w-40 lg:w-48" aria-hidden="true" focusable="false">
               <path d="M8 40 C 20 12, 60 4, 104 6 C 150 8, 186 18, 196 40 Z" fill="#01050b" />
             </svg>
           </div>

@@ -1,6 +1,5 @@
 'use client';
 
-import { Firefly } from './Firefly';
 import { Motes } from './scene/Motes';
 import { stalactites, wall } from './scene/shapes';
 import { useSceneScroll } from './useSceneScroll';
@@ -33,9 +32,10 @@ const LAYERS = [
 const ROOTS = stalactites({ width: W, topY: 0, count: 34, maxLength: 260, seed: 131 });
 
 /**
- * A descida entre a tela de título e a primeira região. É só cenário: um
- * poço que o vagalume atravessa enquanto a página rola, com a luz de cima
- * sumindo e o brilho morno da clareira aparecendo embaixo.
+ * A descida entre a tela de título e a primeira região. É só cenário: o
+ * poço que a câmera atravessa enquanto o vagalume mergulha (ele é animado
+ * pelo diretor da jornada, por cima da página), com a luz de cima sumindo
+ * e o brilho da clareira aparecendo embaixo.
  *
  * Fica fora da árvore de acessibilidade e não tem conteúdo; com movimento
  * reduzido, é só um trecho escuro de rolagem.
@@ -44,10 +44,11 @@ export function Descent() {
   const ref = useSceneScroll<HTMLElement>();
 
   return (
-    <section ref={ref} aria-hidden="true" className="relative h-[260svh] bg-cave">
+    <section ref={ref} aria-hidden="true" className="relative h-[170svh] bg-cave">
       <div className="sticky top-0 h-svh overflow-hidden">
-        {/* a luz de cima apaga conforme se desce */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#1a2f4f,#0b1628_55%,#03060e)]" />
+        {/* começa no escuro do pé da pintura do título, clareia no meio do poço
+            e apaga de novo embaixo: sem emenda visível entre os dois */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#03060e,#12233d_30%,#0b1628_70%,#03060e)]" />
         <div className="absolute inset-0 bg-abyss" style={{ opacity: 'calc(var(--p, 0) * 0.55)' }} />
 
         {LAYERS.map((layer) => (
@@ -79,25 +80,13 @@ export function Descent() {
           <path d={ROOTS} fill="#01050b" />
         </svg>
 
-        {/* a clareira lá embaixo: um brilho morno que cresce na chegada */}
+        {/* a floresta lá embaixo: um brilho verde que cresce na chegada */}
         <div
-          className="absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(ellipse_at_50%_100%,rgba(253,208,95,0.32),transparent_65%)]"
+          className="absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(ellipse_at_50%_100%,rgba(110,230,185,0.3),transparent_65%)]"
           style={{ opacity: 'calc(var(--p, 0) * 1.2 - 0.2)' }}
         />
 
         <Motes density={1.6} rise={-34} tint="230, 220, 207" />
-
-        {/* o vagalume caindo, balançando de leve de um lado para o outro */}
-        <div
-          className="absolute top-[38%] left-1/2 w-28 sm:w-36"
-          style={{
-            transform:
-              'translate3d(calc(-50% + sin(calc(var(--p, 0) * 900deg)) * 28px), 0, 0) rotate(calc(sin(calc(var(--p, 0) * 900deg)) * 9deg))',
-          }}
-        >
-          <div className="absolute -inset-16 rounded-full bg-[radial-gradient(circle,rgba(253,208,95,0.28),transparent_65%)]" />
-          <Firefly uid="ff-descent" pose="flying" className="relative w-full" />
-        </div>
       </div>
     </section>
   );

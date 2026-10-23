@@ -4,20 +4,22 @@ import { useEffect, useRef, useState } from 'react';
 import type { KeyboardEvent as ReactKeyboardEvent } from 'react';
 import type { Locale, PortfolioContent } from '@/types/portfolio';
 import { alternateLocale, pathForLocale, textPathForLocale } from '@/content';
-import { RuinsBackdrop } from './scene/RuinsBackdrop';
-import { Canopy, Ledge } from './scene/Foreground';
+import { SceneCover } from './scene/Scene';
 import { Motes } from './scene/Motes';
 import { Ornament } from './Ornament';
-import { cinematicScrollTo } from './cinematicScroll';
+import { FireflyRig } from './rig/FireflyRig';
+import { RIG_FEET } from './rig/skeleton';
+import { JOURNEY_START } from './journey/events';
 import { useSceneScroll } from './useSceneScroll';
 import { useMediaQuery } from './useMediaQuery';
 
 interface TitleScreenProps {
   content: PortfolioContent;
   locale: Locale;
-  /** id da primeira região, destino do "Começar jornada" */
-  journeyId: string;
 }
+
+/** Topo plano da borda de pedra pintada em 00-titulo, em fração da imagem. */
+const LEDGE = { x: 0.335, y: 0.752 } as const;
 
 const IGNORED_KEYS = new Set(['Tab', 'Shift', 'Control', 'Alt', 'Meta', 'CapsLock']);
 const SCROLL_KEYS = new Set([' ', 'ArrowDown', 'PageDown', 'ArrowUp', 'PageUp']);
@@ -38,7 +40,7 @@ function MenuFlame({ mirrored = false }: { mirrored?: boolean }) {
   );
 }
 
-export function TitleScreen({ content, locale, journeyId }: TitleScreenProps) {
+export function TitleScreen({ content, locale }: TitleScreenProps) {
   const { game, hero } = content;
   const sectionRef = useSceneScroll<HTMLElement>();
   const listRef = useRef<HTMLUListElement>(null);
@@ -78,10 +80,8 @@ export function TitleScreen({ content, locale, journeyId }: TitleScreenProps) {
     next?.focus();
   };
 
-  const beginJourney = () => {
-    const target = document.getElementById(journeyId);
-    if (target) cinematicScrollTo(target);
-  };
+  // quem conduz a descida é o diretor da jornada; o menu só dá a largada
+  const beginJourney = () => window.dispatchEvent(new CustomEvent(JOURNEY_START));
 
   const itemClass =
     'menu-item group inline-flex min-h-11 items-center gap-4 font-title text-sm tracking-[0.28em] text-bone-muted uppercase transition-colors duration-300 hover:text-bone focus-visible:text-glow focus-visible:outline-none sm:text-base';
@@ -94,15 +94,33 @@ export function TitleScreen({ content, locale, journeyId }: TitleScreenProps) {
       className="relative h-svh min-h-[34rem] overflow-hidden"
       onClick={phase === 'prompt' ? () => setPhase('menu') : undefined}
     >
-      <RuinsBackdrop />
-      <Motes density={2.6} rise={10} />
-      <Canopy />
-      <Ledge uid="ff-title" />
+      <SceneCover
+        scene="00-titulo"
+        priority
+        focusClassName="[--fx:0.5] [--fy:0.55] portrait:[--fx:0.3]"
+      >
+        <FireflyRig
+          idle
+          anchor="title"
+          className="absolute h-[21%]"
+          style={{
+            left: `${LEDGE.x * 100}%`,
+            top: `${LEDGE.y * 100}%`,
+            translate: `${-RIG_FEET.x * 100}% ${-RIG_FEET.y * 100}%`,
+          }}
+        />
+      </SceneCover>
+      <Motes density={2.2} rise={10} />
 
       {/* vinheta: escurece as bordas e segura o olhar no centro */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_42%,transparent_35%,rgba(3,6,14,0.78)_100%)]"
+      />
+      {/* faixa escura atrás do bloco de texto: o castelo da pintura é claro */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[70%] bg-[radial-gradient(ellipse_55%_60%_at_50%_32%,rgba(3,6,14,0.62),transparent_75%)]"
       />
 
       <div
