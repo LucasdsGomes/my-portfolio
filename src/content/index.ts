@@ -29,9 +29,21 @@ function resolveSiteUrl(): string {
 
 export const SITE_URL = resolveSiteUrl();
 
+/** O jogo é a página principal de cada idioma. */
 export function pathForLocale(locale: Locale): string {
   return locale === 'pt' ? '/' : '/en';
 }
+
+/**
+ * A versão em texto: mesmo conteúdo, sem jogo. É o caminho para quem não
+ * quer ou não pode jogar, e o que garante que nada fica preso atrás da
+ * experiência.
+ */
+export function textPathForLocale(locale: Locale): string {
+  return locale === 'pt' ? '/texto' : '/en/texto';
+}
+
+export const HTML_LANG: Record<Locale, string> = { pt: 'pt-BR', en: 'en' };
 
 export function alternateLocale(locale: Locale): Locale {
   return locale === 'pt' ? 'en' : 'pt';

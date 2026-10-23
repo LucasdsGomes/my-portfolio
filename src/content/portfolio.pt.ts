@@ -425,4 +425,37 @@ export const pt: PortfolioContent = {
     rights: 'Todos os direitos reservados.',
     builtWith: 'Next.js · TypeScript · Tailwind · Vercel',
   },
+
+  game: {
+    title: {
+      kicker: 'Uma descida pelas profundezas do dado',
+      pressAnyKey: 'Pressione qualquer tecla',
+      tapToStart: 'Toque para começar',
+      menuLabel: 'Menu principal',
+      menu: {
+        start: 'Começar jornada',
+        language: 'English',
+        textVersion: 'Versão em texto',
+      },
+      controlsHint: '↑ ↓ para escolher · Enter para confirmar',
+    },
+    regions: {
+      profile: { name: 'Clareira do Lampião', epithet: 'onde a luz acende' },
+      focus: { name: 'Câmara das Duas Chamas', epithet: 'uma em produção, outra em estudo' },
+      projects: {
+        name: 'Galerias do Dado Bruto',
+        epithet: 'onde chove fluxo e as criaturas espreitam',
+      },
+      stack: { name: 'Santuário dos Amuletos', epithet: 'o que se carrega para a jornada' },
+      path: { name: 'Mesa do Cartógrafo', epithet: 'o caminho até aqui, traçado à mão' },
+      contact: { name: 'O Último Banco', epithet: 'descanse; a jornada fica salva' },
+    },
+    dialogue: {
+      speaker: 'Lucas',
+      advance: 'Continuar',
+      showAll: 'Mostrar tudo',
+      tabletTitle: 'Inscrições da clareira',
+    },
+    skipToJourney: 'Pular para a jornada',
+  },
 };

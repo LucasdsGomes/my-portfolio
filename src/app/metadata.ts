@@ -45,3 +45,17 @@ export function buildMetadata(locale: Locale): Metadata {
     },
   };
 }
+
+/**
+ * A versão em texto aponta o canonical para o jogo: é o mesmo conteúdo em
+ * outra forma, e a página principal de cada idioma é uma só.
+ */
+export function buildTextMetadata(locale: Locale): Metadata {
+  const base = buildMetadata(locale);
+  const textTitle = locale === 'pt' ? 'versão em texto' : 'text version';
+
+  return {
+    ...base,
+    title: `${getContent(locale).meta.title} · ${textTitle}`,
+  };
+}

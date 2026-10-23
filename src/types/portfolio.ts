@@ -71,6 +71,36 @@ export interface NavItem {
   label: string;
 }
 
+/** Uma região do reino. Cada seção do portfólio é uma região. */
+export interface GameRegion {
+  /** nome que aparece no cartão de título ao entrar */
+  name: string;
+  /** a linha menor sob o nome */
+  epithet: string;
+}
+
+export type GameRegionId = 'profile' | 'focus' | 'projects' | 'stack' | 'path' | 'contact';
+
+/** Tudo o que o jogo diz. O conteúdo de verdade continua nos blocos acima. */
+export interface GameContent {
+  title: {
+    kicker: string;
+    pressAnyKey: string;
+    tapToStart: string;
+    menuLabel: string;
+    menu: { start: string; language: string; textVersion: string };
+    controlsHint: string;
+  };
+  regions: Readonly<Record<GameRegionId, GameRegion>>;
+  dialogue: {
+    speaker: string;
+    advance: string;
+    showAll: string;
+    tabletTitle: string;
+  };
+  skipToJourney: string;
+}
+
 export interface PortfolioContent {
   locale: Locale;
   meta: {
@@ -164,4 +194,5 @@ export interface PortfolioContent {
     rights: string;
     builtWith: string;
   };
+  game: GameContent;
 }

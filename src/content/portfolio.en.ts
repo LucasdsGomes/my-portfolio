@@ -424,4 +424,37 @@ export const en: PortfolioContent = {
     rights: 'All rights reserved.',
     builtWith: 'Next.js · TypeScript · Tailwind · Vercel',
   },
+
+  game: {
+    title: {
+      kicker: 'A descent into the depths of data',
+      pressAnyKey: 'Press any key',
+      tapToStart: 'Tap to begin',
+      menuLabel: 'Main menu',
+      menu: {
+        start: 'Begin journey',
+        language: 'Português',
+        textVersion: 'Text version',
+      },
+      controlsHint: '↑ ↓ to choose · Enter to confirm',
+    },
+    regions: {
+      profile: { name: 'Lantern Glade', epithet: 'where the light first wakes' },
+      focus: { name: 'Chamber of Two Flames', epithet: 'one in production, one in study' },
+      projects: {
+        name: 'Galleries of Raw Data',
+        epithet: 'where data rains and creatures lurk',
+      },
+      stack: { name: 'Charm Sanctum', epithet: 'what you carry into the deep' },
+      path: { name: "The Cartographer's Table", epithet: 'the road so far, drawn by hand' },
+      contact: { name: 'The Last Bench', epithet: 'rest here; your journey is saved' },
+    },
+    dialogue: {
+      speaker: 'Lucas',
+      advance: 'Continue',
+      showAll: 'Show all',
+      tabletTitle: 'Glade inscriptions',
+    },
+    skipToJourney: 'Skip to the journey',
+  },
 };
