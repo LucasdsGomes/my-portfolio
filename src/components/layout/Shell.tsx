@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
 import type { Locale } from '@/types/portfolio';
-import { getContent, SITE_URL, alternateLocale, pathForLocale } from '@/content';
+import { getContent, alternateLocale, textPathForLocale, HTML_LANG } from '@/content';
 import { fontVariables } from '@/app/fonts';
+import { personJsonLd } from '@/app/jsonld';
 import { CursorReticle } from './CursorReticle';
 import { ScrollSpine } from './ScrollSpine';
 import { Header } from './Header';
@@ -10,34 +11,6 @@ import { Footer } from './Footer';
 interface ShellProps {
   locale: Locale;
   children: ReactNode;
-}
-
-const HTML_LANG: Record<Locale, string> = { pt: 'pt-BR', en: 'en' };
-
-function personJsonLd(locale: Locale) {
-  const content = getContent(locale);
-
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: content.hero.name,
-    jobTitle: content.hero.role,
-    description: content.meta.description,
-    url: `${SITE_URL}${pathForLocale(locale)}`,
-    email: 'mailto:lucasdsgomes04@gmail.com',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Curitiba',
-      addressRegion: 'PR',
-      addressCountry: 'BR',
-    },
-    alumniOf: {
-      '@type': 'EducationalOrganization',
-      name: content.about.education.degree,
-    },
-    knowsAbout: content.meta.keywords,
-    sameAs: content.contact.links.filter((link) => link.external).map((link) => link.href),
-  };
 }
 
 export function Shell({ locale, children }: ShellProps) {
@@ -56,7 +29,7 @@ export function Shell({ locale, children }: ShellProps) {
 
         <Header
           content={content}
-          alternateHref={pathForLocale(other)}
+          alternateHref={textPathForLocale(other)}
           alternateLang={HTML_LANG[other]}
         />
 

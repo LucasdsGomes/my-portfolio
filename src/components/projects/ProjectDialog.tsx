@@ -125,6 +125,19 @@ export function ProjectDialog({ project, content, onClose }: ProjectDialogProps)
         ) : null}
 
         <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-line pt-6">
+          {project.demo ? (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="inline-flex min-h-11 items-center rounded-panel border border-line px-4 font-mono text-2xs text-fg transition-colors hover:border-accent hover:text-accent"
+            >
+              {content.labels.demo}
+              <span aria-hidden="true" className="ml-2">
+                ↗
+              </span>
+            </a>
+          ) : null}
           {project.repo ? (
             <a
               href={project.repo}

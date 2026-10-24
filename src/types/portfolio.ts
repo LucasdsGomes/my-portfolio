@@ -4,7 +4,7 @@ export const LOCALES: readonly Locale[] = ['pt', 'en'] as const;
 
 export type ProjectCategory =
   | 'ia-agentes'
-  | 'dados-iot'
+  | 'sites-sistemas'
   | 'automacao'
   | 'dashboards'
   | 'estudos';
@@ -27,6 +27,8 @@ export interface Project {
   statusLabel: string;
   /** repositório público, quando existe */
   repo?: string;
+  /** o trabalho no ar (site ou demonstração), quando existe */
+  demo?: string;
   /** contexto do trabalho (empregador/cliente), quando aplicável */
   context?: string;
   /** destaque #1: ocupa duas colunas no grid */
@@ -69,6 +71,66 @@ export interface ContactLink {
 export interface NavItem {
   href: string;
   label: string;
+}
+
+/** Uma região do reino. Cada seção do portfólio é uma região. */
+export interface GameRegion {
+  /** nome que aparece no cartão de título ao entrar */
+  name: string;
+  /** a linha menor sob o nome */
+  epithet: string;
+}
+
+export type GameRegionId = 'profile' | 'focus' | 'projects' | 'stack' | 'path' | 'contact';
+
+/** Cada projeto vira uma criatura do bestiário. */
+export interface BestiaryEntry {
+  /** arquivo em art/source/criaturas, sem extensão */
+  creature: string;
+  /** nome da criatura */
+  name: string;
+  /** chefes ocupam o topo do bestiário, maiores */
+  boss?: boolean;
+}
+
+/** Tudo o que o jogo diz. O conteúdo de verdade continua nos blocos acima. */
+export interface GameContent {
+  title: {
+    kicker: string;
+    pressAnyKey: string;
+    tapToStart: string;
+    menuLabel: string;
+    menu: { start: string; language: string; textVersion: string };
+    controlsHint: string;
+  };
+  regions: Readonly<Record<GameRegionId, GameRegion>>;
+  dialogue: {
+    speaker: string;
+    advance: string;
+    showAll: string;
+    tabletTitle: string;
+  };
+  skipToJourney: string;
+  skipScene: string;
+  firefly: { poke: string; controls: string };
+  sound: { on: string; off: string; hint: string };
+  bestiary: {
+    lead: string;
+    bosses: string;
+    creatures: string;
+    defeated: string;
+    undefeated: string;
+    open: string;
+    close: string;
+    labels: { creature: string; victory: string; arsenal: string; dream: string; repo: string; demo: string; replay: string };
+    /** chave: id do projeto */
+    entries: Readonly<Record<string, BestiaryEntry>>;
+  };
+  charms: { notches: string; notchesHint: string; bag: string };
+  map: { here: string };
+  bench: { rest: string; saved: string; end: string; again: string };
+  /** o aviso da barra de espaço: o que ela faz agora */
+  space: { key: string; finish: string; next: string; region: string; rest: string; again: string };
 }
 
 export interface PortfolioContent {
@@ -133,6 +195,7 @@ export interface PortfolioContent {
       stack: string;
       status: string;
       repo: string;
+      demo: string;
       openDetail: string;
       closeDetail: string;
       confidential: string;
@@ -164,4 +227,5 @@ export interface PortfolioContent {
     rights: string;
     builtWith: string;
   };
+  game: GameContent;
 }
