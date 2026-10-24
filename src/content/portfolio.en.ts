@@ -4,19 +4,19 @@ export const en: PortfolioContent = {
   locale: 'en',
 
   meta: {
-    title: 'Lucas Gomes · AI Analyst in automation, data and telemetry',
+    title: 'Lucas Gomes · AI Analyst in agents, automation and data',
     description:
-      'I build the intelligence layer between operational data and decisions: AI agents, process automation, IoT telemetry pipelines and production APIs. Curitiba, Brazil.',
-    ogAlt: 'Lucas Gomes, AI Analyst. Automation, systems integration and applied data engineering.',
+      'I build the intelligence layer between operational data and decisions: AI agents, process automation, production APIs and dashboards, plus websites and systems for small businesses. Curitiba, Brazil.',
+    ogAlt: 'Lucas Gomes, AI Analyst. Agents, automation, APIs and systems integration.',
     keywords: [
       'AI Analyst',
+      'AI agents',
       'process automation',
-      'data engineering',
-      'IoT telemetry',
+      'AI engineering',
       'FastAPI',
       'n8n',
       'Supabase',
-      'Azure IoT Hub',
+      'LangChain',
       'Brazil',
     ],
   },
@@ -43,7 +43,7 @@ export const en: PortfolioContent = {
     role: 'AI Analyst at Milen.ia',
     headline: 'I build the intelligence layer between operational data and decisions.',
     subheadline:
-      'From AI agents and process automation to IoT telemetry pipelines and production APIs. Currently building the telemetry platform for a fleet of electric commercial vehicles.',
+      'AI agents, process automation, APIs and dashboards in production at Milen.ia. On my own, websites and systems for small businesses at L² Studio.',
     availability: 'Engaged · open to conversations',
     location: 'Curitiba, Brazil · remote',
     portraitAlt: 'Portrait of Lucas Gomes',
@@ -51,21 +51,21 @@ export const en: PortfolioContent = {
     ctaSecondary: 'Get in touch',
     gauges: [
       {
-        label: 'ENDPOINTS_IN_PRODUCTION',
-        value: 28,
-        display: '28',
-        caption: 'Platform data API, across 6 domains',
-      },
-      {
         label: 'SYSTEMS_INTEGRATED',
         value: 8,
         display: '08',
-        caption: 'CRM, support, ERP, spreadsheets and IoT',
+        caption: 'CRM, support, ERP, spreadsheets and LLMs',
+      },
+      {
+        label: 'CERTIFICATIONS',
+        value: 11,
+        display: '11',
+        caption: 'Agents, RAG and SQL with AI',
       },
       {
         label: 'CURRENT_FOCUS',
-        display: 'FLEET_TELEMETRY',
-        caption: 'Electric commercial vehicles',
+        display: 'APPLIED_AI',
+        caption: 'Agents, automation and APIs',
       },
     ],
   },
@@ -75,14 +75,14 @@ export const en: PortfolioContent = {
     title: 'About',
     paragraphs: [
       'I work at the border between business automation and engineering. I design and ship AI agents, automation workflows, FastAPI services and data pipelines that connect CRM, customer service, operations and product. These are systems that have to keep running after I leave the room.',
-      'My foundation came from n8n automation and CRM integration: Bitrix24, Chatwoot, WhatsApp Business API. From there I moved into data architecture on Supabase and PostgreSQL and, more recently, into real-time telemetry ingestion with MQTT and Azure IoT Hub.',
-      'I am currently deepening machine learning fundamentals in a practical way: an honest baseline before any model, F1-macro on imbalanced classes, group-aware splits so nothing leaks between train and test. I apply the same rigour to an audio classification project and to real fleet data alike.',
+      'My foundation came from n8n automation and CRM integration: Bitrix24, Chatwoot, WhatsApp Business API. From there I moved into data architecture on Supabase and PostgreSQL and into APIs of my own, with typed contracts, tests and authentication, running on Docker and Azure cloud services.',
+      'Day to day I build alongside coding agents such as Claude Code, and I treat whatever a model writes as untrusted input: validation, tests and review before anything reaches production. Outside Milen.ia I bring the same care to L² Studio, where Lucas Bastos and I build websites and systems for small businesses.',
       'Remote, direct communication, delivery measured against a result.',
     ],
     facts: [
       { label: 'LOCATION', value: 'Curitiba, Brazil' },
       { label: 'ROLE', value: 'AI Analyst · Milen.ia (contractor)' },
-      { label: 'FOCUS', value: 'Fleet telemetry, agents and data' },
+      { label: 'FOCUS', value: 'Agents, automation, APIs and data' },
       { label: 'AVAILABILITY', value: 'Engaged · open to conversations' },
     ],
     education: {
@@ -115,19 +115,19 @@ export const en: PortfolioContent = {
   focus: {
     eyebrow: '// current focus',
     title: 'What I am working on now',
-    lead: 'Two fronts at once: one runs in production, the other keeps me learning the fundamentals underneath it.',
+    lead: 'Two fronts at once: one inside Milen.ia, the other on my own, with small businesses.',
     tracks: [
       {
-        label: 'PRODUCTION',
-        title: 'Electric fleet telemetry',
+        label: 'MILEN.IA',
+        title: 'Applied AI, APIs and data',
         description:
-          'Real-time vehicle signal ingestion, a canonical database schema and an operational dashboard for a fleet of electric urban cargo vehicles. The next step is moving from descriptive to predictive: anomaly detection, forecasting and eventually supervised models over real battery and usage data.',
+          'Conversational agents and n8n automations wired into the CRM and customer service, FastAPI services with typed contracts and tests, dashboards that bring CRM and ERP into a single reading, and the monitoring of all of it: flow errors and AI spend in real time.',
       },
       {
-        label: 'STUDY',
-        title: 'Machine learning fundamentals',
+        label: 'L² STUDIO',
+        title: 'Websites and systems for small businesses',
         description:
-          'The full cycle of a genuinely hard classification problem, bioacoustics with 42 species and severe class imbalance, done in the right order: group-aware split first, a dumb baseline to set the bar, F1-macro as the metric. Method before result.',
+          'With Lucas Bastos, I build websites and management systems for gyms, barbershops, clinics and consultants, from layout to deploy. Online booking, subscriptions, an owner dashboard and a quote the client builds themselves: software made to measure for teams with no tech staff.',
       },
     ],
   },
@@ -140,7 +140,7 @@ export const en: PortfolioContent = {
     filterLabel: 'Filter work by category',
     categories: {
       'ia-agentes': 'AI & Agents',
-      'dados-iot': 'Data & IoT',
+      'sites-sistemas': 'Sites & Systems',
       automacao: 'Automation',
       dashboards: 'Dashboards',
       estudos: 'Studies',
@@ -151,6 +151,7 @@ export const en: PortfolioContent = {
       stack: 'Stack',
       status: 'Status',
       repo: 'View repository',
+      demo: 'See it live',
       openDetail: 'Open detail',
       closeDetail: 'Close',
       confidential:
@@ -158,60 +159,11 @@ export const en: PortfolioContent = {
     },
     items: [
       {
-        id: 'telemetria-frota',
-        title: 'Electric fleet telemetry platform',
-        category: 'dados-iot',
-        context: 'Milen.ia · Hitech Electric',
-        featured: true,
-        status: 'evolucao',
-        statusLabel: 'In production · evolving',
-        problem:
-          'A fleet of electric urban cargo vehicles with no unified operational visibility: battery state, cell health and real usage lived in separate sources.',
-        built:
-          'I built the full real-time ingestion pipeline, from vehicle to database through MQTT, Azure IoT Hub, Event Hub and Azure Functions, plus the operational dashboard in Next.js. I defined the canonical database schema with standardised signal naming, which removed ambiguity between sources and made consistent historical analysis possible. It is the foundation the API and the AI diagnostics were built on.',
-        stack: [
-          'MQTT',
-          'Azure IoT Hub',
-          'Event Hub',
-          'Azure Functions',
-          'Supabase',
-          'PostgreSQL',
-          'Next.js',
-          'TypeScript',
-        ],
-      },
-      {
-        id: 'api-anel-0',
-        title: 'Ring 0 API, the platform data layer',
-        category: 'dados-iot',
-        context: 'Milen.ia · Hitech Electric',
-        status: 'producao',
-        statusLabel: 'In production',
-        problem:
-          'Dashboard, AI diagnostics and analyses all hit the database directly, each with its own interpretation of the data.',
-        built:
-          'I wrote a FastAPI service covering 6 domains and 28 endpoints, with typed Pydantic contracts and pytest coverage. I packaged a Postman collection for validation and handoff, so every new consumer comes through the same door under the same contract.',
-        stack: ['Python', 'FastAPI', 'Pydantic', 'pytest', 'Supabase', 'PostgreSQL', 'Postman'],
-      },
-      {
-        id: 'diagnostico-ia',
-        title: 'AI-assisted fleet diagnostics',
-        category: 'ia-agentes',
-        context: 'Milen.ia · Hitech Electric',
-        status: 'evolucao',
-        statusLabel: 'In production · evolving',
-        problem:
-          'Raw telemetry is not actionable for the people running the fleet. Whoever reads the panel needs a conclusion, not a time series.',
-        built:
-          'I built the diagnostics layer that reads battery signals and usage patterns and returns them in natural language, grounded in the platform canonical schema. I also defined the three-phase ML roadmap: anomaly detection, time series forecasting and finally supervised models.',
-        stack: ['Gemini Flash', 'Python', 'Supabase', 'Isolation Forest', 'Prophet', 'LightGBM'],
-        note: 'The three phases are deliberately incremental: supervised models only enter once there is enough labelled history to train on without fooling yourself.',
-      },
-      {
         id: 'mila-sdr',
         title: 'Mila, a multichannel SDR agent',
         category: 'ia-agentes',
         context: 'Milen.ia',
+        featured: true,
         status: 'producao',
         statusLabel: 'In production',
         problem:
@@ -219,6 +171,48 @@ export const en: PortfolioContent = {
         built:
           'I built a conversational agent for outbound flows using the SPIN methodology, integrated with the CRM and the customer service platform. The hard part was never the prompt: it was migrating the WhatsApp delivery layer without losing conversations, resolving concurrency between simultaneous messages from the same lead, normalising inconsistent source data and drawing a precise boundary around what enters the agent context.',
         stack: ['n8n', 'LLM', 'Chatwoot', 'WhatsApp Business API', 'Bitrix24', 'Supabase'],
+      },
+      {
+        id: 'milen-admin',
+        title: 'Milen.ia Administration, the monitoring hub',
+        category: 'dashboards',
+        context: 'Milen.ia',
+        status: 'producao',
+        statusLabel: 'In production',
+        problem:
+          'Workflow errors got lost between executions, and AI service spend only really showed up on the end-of-month invoice.',
+        built:
+          'I built an internal dashboard that receives errors from every n8n workflow by webhook, through a global error handler that maps each workflow to its project, and shows them in real time with Supabase Realtime. The same screen tracks spend and usage of the AI services, OpenAI and ElevenLabs, with an alert when credit runs low. Member invites and usage collection run on Edge Functions.',
+        stack: ['React', 'TypeScript', 'Supabase Realtime', 'Supabase Edge Functions', 'n8n', 'OpenAI API', 'ElevenLabs API'],
+        note: 'Good automation tells you when it breaks. The dashboard exists so that no flow error depends on someone opening the log.',
+      },
+      {
+        id: 'sql-copilot',
+        title: 'SQL Copilot, business questions in safe SQL',
+        category: 'estudos',
+        context: 'Personal project',
+        status: 'entregue',
+        statusLabel: 'Delivered',
+        repo: 'https://github.com/LucasdsGomes/sql-copilot',
+        problem:
+          'Letting an LLM write SQL is easy. The hard part is guaranteeing the generated query never changes, deletes or exposes what it should not.',
+        built:
+          'I built an API that takes a natural language question, asks Claude for the SQL and treats that query as untrusted input: a sqlglot validator rejects anything that is not a read and forces a LIMIT, and the database runs on a read-only connection with a timeout. In front of it, API key authentication with constant-time comparison and rate limiting applied before authentication. I tested it end to end on a free cloud tier and took it down so as not to expose a paid LLM key.',
+        stack: ['Python', 'FastAPI', 'LangChain', 'Claude', 'sqlglot', 'SQLite', 'pytest', 'GitHub Actions'],
+        note: 'No layer is trusted on its own: each one assumes the previous one failed. It is the same principle I apply to the code I write with AI agents.',
+      },
+      {
+        id: 'dashboards-operacao',
+        title: 'Sales, marketing and finance dashboards',
+        category: 'dashboards',
+        context: 'Milen.ia',
+        status: 'entregue',
+        statusLabel: 'Delivered',
+        problem:
+          'Metrics scattered across CRM, spreadsheets and ERP, with every team reaching a different number for the same question.',
+        built:
+          'I unified the sales and marketing panels with two-phase data enrichment and KPIs validated with the team before they became charts. I built the sales predictability view, with target, forecast and the gap left to close the month, designed for the weekly sales meeting. And I delivered a finance panel integrated with the ERP, closing the revenue loop.',
+        stack: ['Lovable', 'Supabase', 'Bitrix24', 'Omie', 'SQL'],
       },
       {
         id: 'reativacao-base',
@@ -247,17 +241,32 @@ export const en: PortfolioContent = {
         stack: ['n8n', 'Supabase Edge Functions', 'Picsart', 'Imagen'],
       },
       {
-        id: 'dashboards-operacao',
-        title: 'Sales, marketing and finance dashboards',
-        category: 'dashboards',
-        context: 'Milen.ia',
+        id: 'navalha-barbearias',
+        title: 'Navalha, a management system for barbershops',
+        category: 'sites-sistemas',
+        context: 'L² Studio',
         status: 'entregue',
-        statusLabel: 'Delivered',
+        statusLabel: 'Live demo',
+        demo: 'https://barbearia-navalha-demo.vercel.app',
         problem:
-          'Metrics scattered across CRM, spreadsheets and ERP, with every team reaching a different number for the same question.',
+          'A small barbershop books over WhatsApp and tracks subscriptions from memory, and that is where slots, clients and revenue get lost.',
         built:
-          'I unified the sales and marketing panels with two-phase data enrichment and KPIs validated with the team before they became charts. I also delivered a finance panel integrated with the ERP, closing the revenue loop.',
-        stack: ['Lovable', 'Supabase', 'Bitrix24', 'Omie', 'SQL'],
+          'I built the system L² Studio pitches to barbershops: five-step booking that respects shifts, breaks, days off and existing appointments, never letting two clients take the same slot; a client area with subscriptions the booking consumes on its own; and an owner dashboard with revenue, average ticket and appointments. The demo runs with no external database: sample data creates itself on the first visit.',
+        stack: ['Next.js', 'TypeScript', 'Prisma', 'SQLite', 'Tailwind', 'ECharts', 'Zod', 'Playwright'],
+      },
+      {
+        id: 'sites-pequenos-negocios',
+        title: 'Websites for small businesses',
+        category: 'sites-sistemas',
+        context: 'L² Studio',
+        status: 'andamento',
+        statusLabel: 'In progress',
+        demo: 'https://suaconsultorapg.com',
+        problem:
+          'Gyms, bakeries, clinics and consultants need to show up well on Google and WhatsApp, but have neither the time nor the budget for an agency.',
+        built:
+          'The studio site itself works as a portfolio and ends in a quote the visitor builds on their own. For Sua Consultora PG, a real estate consultant in Ponta Grossa, we delivered a page with a mortgage simulator, a rent calculator and a document checklist, published on Cloudflare Pages with caching and security headers. Lightweight sites, no build step, that the client can maintain.',
+        stack: ['HTML', 'CSS', 'JavaScript', 'Cloudflare Pages', 'Vercel', 'SEO'],
       },
       {
         id: 'rag-conhecimento-interno',
@@ -276,7 +285,7 @@ export const en: PortfolioContent = {
       {
         id: 'otimizador-processos',
         title: 'AI business process optimiser',
-        category: 'automacao',
+        category: 'estudos',
         context: 'Personal project',
         status: 'entregue',
         statusLabel: 'Delivered',
@@ -287,20 +296,6 @@ export const en: PortfolioContent = {
           'I built a single flow that receives process requests, orchestrates handling, analyses with an LLM and returns the result in a dashboard. It is deliberately applied study rather than a polished tutorial: the architecture decisions are recorded in the repository, iterations included.',
         stack: ['Python', 'FastAPI', 'PostgreSQL', 'Docker', 'n8n', 'OpenRouter', 'Streamlit'],
       },
-      {
-        id: 'anuros-ml',
-        title: 'Anuran call classification',
-        category: 'estudos',
-        context: 'ML study',
-        status: 'andamento',
-        statusLabel: 'In progress',
-        problem:
-          'AnuraSet: a Brazilian bioacoustics dataset with 42 species and severe class imbalance.',
-        built:
-          'A study project covering the full ML cycle in the right order. A group-aware split before any modelling, so recordings from the same site cannot leak from train into test. A DummyClassifier baseline to set an honest bar, and F1-macro as the metric, because accuracy on a dataset like this lies.',
-        stack: ['Python', 'pandas', 'scikit-learn', 'librosa'],
-        note: 'It is in the portfolio for the method, not the result. The hard part of an imbalanced problem is building an evaluation you cannot fool yourself with.',
-      },
     ],
   },
 
@@ -309,35 +304,36 @@ export const en: PortfolioContent = {
     title: 'Stack',
     lead: 'Grouped by domain, with emphasis on what I use daily. No percentage bars, because proficiency is not a number anyone can defend.',
     coreLabel: 'Daily driver',
-    core: ['Python', 'FastAPI', 'n8n', 'Supabase', 'PostgreSQL', 'TypeScript'],
+    core: ['Python', 'FastAPI', 'n8n', 'Supabase', 'PostgreSQL', 'TypeScript', 'Claude Code'],
     groups: [
       {
         label: 'Languages & APIs',
-        items: ['Python', 'TypeScript', 'SQL', 'FastAPI', 'REST'],
+        items: ['Python', 'TypeScript', 'SQL', 'FastAPI', 'Pydantic', 'REST'],
       },
       {
-        label: 'AI & ML',
+        label: 'AI & Agents',
         items: [
           'OpenAI',
           'Anthropic Claude',
           'Gemini',
-          'Prompt engineering',
+          'LangChain',
+          'RAG',
+          'pgvector',
           'Agents',
-          'scikit-learn',
-          'LightGBM',
-          'Prophet',
-          'Isolation Forest',
+          'Prompt engineering',
+          'Claude Code',
         ],
       },
       {
         label: 'Automation & Integration',
-        items: ['n8n', 'Webhooks', 'Bitrix24', 'Chatwoot', 'WhatsApp Business API', 'Apify'],
+        items: ['n8n', 'Webhooks', 'Bitrix24', 'Chatwoot', 'WhatsApp Business API', 'Omie', 'Apify'],
       },
       {
         label: 'Data & Infra',
         items: [
           'Supabase',
           'PostgreSQL',
+          'Prisma',
           'MQTT',
           'Azure IoT Hub',
           'Event Hub',
@@ -347,11 +343,11 @@ export const en: PortfolioContent = {
       },
       {
         label: 'Front & Deploy',
-        items: ['Next.js', 'React', 'Tailwind', 'Vercel'],
+        items: ['Next.js', 'React', 'TanStack', 'Tailwind', 'Lovable', 'Vercel', 'Cloudflare'],
       },
       {
         label: 'Quality',
-        items: ['pytest', 'Postman', 'Git'],
+        items: ['pytest', 'Vitest', 'Playwright', 'Postman', 'Git', 'GitHub Actions'],
       },
     ],
   },
@@ -380,10 +376,10 @@ export const en: PortfolioContent = {
       {
         index: '03',
         period: '2026 · now',
-        title: 'Data & telemetry',
+        title: 'APIs, data & product',
         description:
-          'The flows started demanding a source of truth, so I moved to owning the data architecture and writing APIs instead of chaining nodes. Today the data frequency is telemetry: real-time ingestion from an electric fleet, with ML fundamentals being built underneath.',
-        markers: ['FastAPI', 'Supabase', 'PostgreSQL', 'MQTT', 'Azure IoT Hub', 'scikit-learn'],
+          'The flows started demanding a source of truth, so I moved to owning the data architecture and writing APIs instead of chaining nodes: typed contracts, tests and authentication. In parallel, I started L² Studio to bring the same care to websites and systems for small businesses.',
+        markers: ['FastAPI', 'Supabase', 'PostgreSQL', 'Docker', 'Claude Code', 'Next.js'],
       },
     ],
   },
@@ -440,7 +436,7 @@ export const en: PortfolioContent = {
     },
     regions: {
       profile: { name: 'Lantern Glade', epithet: 'where the light first wakes' },
-      focus: { name: 'Chamber of Two Flames', epithet: 'one in production, one in study' },
+      focus: { name: 'Chamber of Two Flames', epithet: 'two fronts, each with its own flame' },
       projects: {
         name: 'Galleries of Raw Data',
         epithet: 'where data rains and creatures lurk',
@@ -457,6 +453,56 @@ export const en: PortfolioContent = {
     },
     skipToJourney: 'Skip to the journey',
     skipScene: 'Skip scene',
+    bestiary: {
+      lead: 'Every problem I faced became a creature in this journal. Each entry tells what it was like and how it was defeated.',
+      bosses: 'Bosses',
+      creatures: 'Creatures',
+      defeated: 'Defeated',
+      undefeated: 'Not yet defeated',
+      open: 'Read the entry',
+      close: 'Close the journal',
+      labels: {
+        creature: 'The creature',
+        victory: 'How it was defeated',
+        arsenal: 'Arsenal',
+        dream: 'Dream vision',
+        repo: 'View repository',
+        demo: 'See it live',
+        replay: 'Replay the battle',
+      },
+      entries: {
+        'mila-sdr': { creature: 'chefe-cacador', name: 'Shadow Hunter', boss: true },
+        'milen-admin': { creature: 'chefe-guardiao', name: 'Arcane Guardian', boss: true },
+        'sql-copilot': { creature: 'chefe-colosso', name: 'Armored Colossus', boss: true },
+        'dashboards-operacao': { creature: 'chefe-devorador', name: 'Deep Devourer', boss: true },
+        'reativacao-base': { creature: 'espectro', name: 'Faint Specter' },
+        'conteudo-automatizado': { creature: 'inseto-voador', name: 'Flying Insect' },
+        'navalha-barbearias': { creature: 'sentinela', name: 'Tower Sentinel' },
+        'sites-pequenos-negocios': { creature: 'agua-viva', name: 'Cave Jellyfish' },
+        'rag-conhecimento-interno': { creature: 'espirito', name: 'Wandering Spirit' },
+        'otimizador-processos': { creature: 'inseto-patrulha', name: 'Patrol Bug' },
+      },
+    },
+    charms: {
+      notches: 'Notches',
+      notchesHint: 'The equipped charms are the ones I use every day.',
+      bag: 'In the bag',
+    },
+    map: { here: 'You are here' },
+    bench: {
+      rest: 'Rest on the bench',
+      saved: 'Journey saved',
+      end: 'End of the journey',
+      again: 'New journey',
+    },
+    space: {
+      key: 'Space',
+      finish: 'Finish the line',
+      next: 'Next line',
+      region: 'Next region',
+      rest: 'Rest on the bench',
+      again: 'New journey',
+    },
     sound: {
       on: 'Turn sound off',
       off: 'Turn sound on',

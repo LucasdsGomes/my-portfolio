@@ -9,7 +9,7 @@ import { Motes } from './scene/Motes';
 import { Ornament } from './Ornament';
 import { PlayerFirefly } from './player/PlayerFirefly';
 import { RIG_FEET } from './rig/skeleton';
-import { JOURNEY_START } from './journey/events';
+import { JOURNEY_RESET, JOURNEY_START } from './journey/events';
 import { useSceneScroll } from './useSceneScroll';
 import { playSfx } from './audio/sound';
 import { useMediaQuery } from './useMediaQuery';
@@ -68,6 +68,12 @@ export function TitleScreen({ content, locale }: TitleScreenProps) {
     return () => window.removeEventListener('keydown', onKey);
   }, [phase]);
 
+  useEffect(() => {
+    const onReset = () => setPhase('prompt');
+    window.addEventListener(JOURNEY_RESET, onReset);
+    return () => window.removeEventListener(JOURNEY_RESET, onReset);
+  }, []);
+
   // ao abrir o menu, o foco vai para o primeiro item, sem mexer na rolagem
   useEffect(() => {
     if (phase !== 'menu') return;
@@ -113,7 +119,7 @@ export function TitleScreen({ content, locale }: TitleScreenProps) {
           label={game.firefly.poke}
           range={LEDGE_RANGE}
           onExitRight={jumpIntoShaft}
-          className="absolute h-[21%]"
+          className="absolute h-[15%]"
           style={{
             left: `${LEDGE.x * 100}%`,
             top: `${LEDGE.y * 100}%`,

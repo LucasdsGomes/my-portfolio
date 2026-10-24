@@ -162,6 +162,63 @@
   visibility: hidden;
 }
 
+/* a luz sob os pés: um brilho morno no chão e um fio de luz contornando
+   por baixo, como se o vagalume pisasse na própria luz */
+.firefly-glow {
+  width: 150%;
+  aspect-ratio: 4 / 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(253, 208, 95, 0.5),
+    rgba(253, 208, 95, 0.16) 45%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+  transition:
+    opacity 300ms ease,
+    scale 300ms ease;
+  animation: glow-breathe 3.6s var(--ease-drift) infinite;
+}
+
+.firefly-glow::after {
+  content: '';
+  position: absolute;
+  inset: 30% 20%;
+  border-radius: 50%;
+  border-bottom: 2px solid rgba(255, 236, 170, 0.85);
+  box-shadow: 0 6px 12px -6px rgba(253, 208, 95, 0.8);
+}
+
+/* sentado, quem brilha é o banco */
+.player-firefly[data-seated] .firefly-glow {
+  opacity: 0 !important;
+}
+
+@keyframes glow-breathe {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.25);
+  }
+}
+
+/* a luz guia das passagens: a mesma luz dos pés, solta, em forma de orbe */
+.guide-light {
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    #fff6d6 0%,
+    rgba(253, 208, 95, 0.85) 18%,
+    rgba(253, 208, 95, 0.28) 42%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+}
+
 [data-idle] [data-rig-body] {
   animation: rig-breathe 3.6s var(--ease-drift) infinite;
 }
@@ -270,6 +327,163 @@
   50% {
     opacity: 1;
   }
+}
+
+/* ------------------------------------------------------------------
+   CHAMAS
+   Três línguas de fogo em ritmos diferentes: a soma nunca se repete
+   igual, que é o que faz parecer fogo e não uma animação em loop.
+------------------------------------------------------------------ */
+.flame-a,
+.flame-b,
+.flame-c {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+.flame-a {
+  animation: flame-flicker 1.9s ease-in-out infinite;
+}
+
+.flame-b {
+  animation: flame-flicker 1.3s ease-in-out -0.4s infinite;
+}
+
+.flame-c {
+  animation: flame-flicker 0.9s ease-in-out -0.2s infinite;
+}
+
+@keyframes flame-flicker {
+  0%,
+  100% {
+    transform: scale(1, 1) skewX(0deg);
+  }
+  25% {
+    transform: scale(0.94, 1.06) skewX(-3deg);
+  }
+  50% {
+    transform: scale(1.04, 0.95) skewX(2deg);
+  }
+  75% {
+    transform: scale(0.97, 1.03) skewX(-1deg);
+  }
+}
+
+/* ------------------------------------------------------------------
+   MAPA DO CARTÓGRAFO
+   A trilha se desenha e os marcos aparecem um a um, na ordem do tempo.
+------------------------------------------------------------------ */
+.map-reveal {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2.6s var(--ease-settle);
+}
+
+.map[data-drawn='true'] .map-reveal {
+  stroke-dashoffset: 0;
+}
+
+.map-stop {
+  transition:
+    opacity 700ms var(--ease-settle),
+    translate 700ms var(--ease-settle);
+  transition-delay: calc(var(--i, 0) * 0.75s);
+}
+
+.js .map[data-drawn='false'] .map-stop {
+  opacity: 0;
+  translate: 0 14px;
+}
+
+/* ------------------------------------------------------------------
+   AMULETOS
+------------------------------------------------------------------ */
+.charm[data-pulse='true'] .charm-gem {
+  animation: charm-pulse 650ms var(--ease-settle);
+}
+
+@keyframes charm-pulse {
+  0% {
+    scale: 1;
+  }
+  35% {
+    scale: 1.18;
+    box-shadow: 0 0 28px rgba(253, 208, 95, 0.85);
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+/* ------------------------------------------------------------------
+   ÚLTIMO BANCO
+   Ao salvar, um anel de luz sobe do assento e fica um brilho morno.
+------------------------------------------------------------------ */
+.bench-glow {
+  background: radial-gradient(circle, rgba(253, 208, 95, 0.55), rgba(253, 208, 95, 0.12) 45%, transparent 70%);
+  opacity: 0;
+  scale: 0.3;
+  mix-blend-mode: screen;
+}
+
+.bench-glow[data-on='true'] {
+  animation:
+    bench-save 1.6s var(--ease-settle) forwards,
+    bench-warm 4s ease-in-out 1.6s infinite;
+}
+
+@keyframes bench-save {
+  0% {
+    opacity: 0;
+    scale: 0.3;
+  }
+  30% {
+    opacity: 1;
+    scale: 1.25;
+  }
+  100% {
+    opacity: 0.45;
+    scale: 0.8;
+  }
+}
+
+@keyframes bench-warm {
+  0%,
+  100% {
+    opacity: 0.45;
+    scale: 0.8;
+  }
+  50% {
+    opacity: 0.6;
+    scale: 0.88;
+  }
+}
+
+/* ------------------------------------------------------------------
+   BARRA DE ESPAÇO
+   O aviso do canto de baixo diz o que o espaço faz agora.
+------------------------------------------------------------------ */
+.space-prompt {
+  transition:
+    opacity 300ms ease,
+    translate 300ms var(--ease-settle);
+}
+
+.space-prompt[data-shown='false'] {
+  opacity: 0;
+  translate: 0 12px;
+  pointer-events: none;
+}
+
+.space-key {
+  box-shadow:
+    inset 0 -2px 0 rgba(230, 220, 207, 0.18),
+    0 0 12px rgba(253, 208, 95, 0.12);
+}
+
+.space-prompt[data-pressed='true'] .space-key {
+  translate: 0 2px;
+  box-shadow: inset 0 0 0 rgba(230, 220, 207, 0.18);
 }
 
 /* ------------------------------------------------------------------

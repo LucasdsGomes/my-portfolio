@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import type { GameRegion } from '@/types/portfolio';
 import { Ornament } from './Ornament';
 import { playSfx } from './audio/sound';
+import { JOURNEY_RESET } from './journey/events';
 
 interface RegionCardProps {
   id: string;
@@ -39,7 +40,16 @@ export function RegionCard({ id, region }: RegionCardProps) {
     );
 
     observer.observe(node);
-    return () => observer.disconnect();
+    // nova jornada: esconde de novo e espera a região voltar à tela
+    const onReset = () => {
+      node.dataset.state = 'hidden';
+      observer.observe(node);
+    };
+    window.addEventListener(JOURNEY_RESET, onReset);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener(JOURNEY_RESET, onReset);
+    };
   }, []);
 
   return (

@@ -2,6 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Ornament } from './Ornament';
+import { playSfx } from './audio/sound';
+import { registerDialogue } from './journey/dialogues';
+import { JOURNEY_RESET, announceChange } from './journey/events';
 
 interface DialogueProps {
   speaker: string;
@@ -23,6 +26,8 @@ const CPS = 52;
 export function Dialogue({ speaker, lines, labels }: DialogueProps) {
   const [index, setIndex] = useState(0);
   const [expanded, setExpanded] = useState(false);
+  // muda a cada nova jornada: força a caixa a esperar aparecer de novo
+  const [round, setRound] = useState(0);
   const boxRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
   const typing = useRef(false);
@@ -36,6 +41,7 @@ export function Dialogue({ speaker, lines, labels }: DialogueProps) {
     cancelAnimationFrame(frame.current);
     typing.current = false;
     if (textRef.current) textRef.current.textContent = line;
+    announceChange();
   }, [line]);
 
   const typeLine = useCallback(() => {
@@ -50,12 +56,16 @@ export function Dialogue({ speaker, lines, labels }: DialogueProps) {
     typing.current = true;
     node.textContent = '';
     const start = performance.now();
+    announceChange();
 
     const step = (now: number) => {
       const count = Math.floor(((now - start) / 1000) * CPS);
       node.textContent = line.slice(0, count);
       if (count < line.length) frame.current = requestAnimationFrame(step);
-      else typing.current = false;
+      else {
+        typing.current = false;
+        announceChange();
+      }
     };
 
     frame.current = requestAnimationFrame(step);
@@ -88,15 +98,49 @@ export function Dialogue({ speaker, lines, labels }: DialogueProps) {
       observer.disconnect();
       cancelAnimationFrame(frame.current);
     };
-  }, [typeLine]);
+  }, [typeLine, round]);
+
+  // nova jornada: volta à primeira fala, inteira, à espera de ser lida
+  useEffect(() => {
+    const onReset = () => {
+      cancelAnimationFrame(frame.current);
+      typing.current = false;
+      started.current = false;
+      if (textRef.current) textRef.current.textContent = lines[0] ?? '';
+      setExpanded(false);
+      setIndex(0);
+      setRound((r) => r + 1);
+    };
+    window.addEventListener(JOURNEY_RESET, onReset);
+    return () => window.removeEventListener(JOURNEY_RESET, onReset);
+  }, [lines]);
 
   const advance = () => {
     if (typing.current) {
       finishLine();
       return;
     }
-    if (!isLast) setIndex((i) => i + 1);
+    if (isLast) return;
+    playSfx('dialogo');
+    setIndex((i) => i + 1);
   };
+
+  // a barra de espaço conduz a fala: completa, avança e, na última, segue viagem
+  const advanceRef = useRef(advance);
+  const lastRef = useRef(isLast);
+  useEffect(() => {
+    advanceRef.current = advance;
+    lastRef.current = isLast;
+  });
+  useEffect(() => {
+    const node = boxRef.current;
+    if (!node || expanded) return;
+    return registerDialogue({
+      element: node,
+      state: () => (typing.current ? 'typing' : lastRef.current ? 'done' : 'more'),
+      advance: () => advanceRef.current(),
+    });
+  }, [expanded]);
 
   if (expanded) {
     return (

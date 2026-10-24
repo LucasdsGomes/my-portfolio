@@ -284,6 +284,33 @@ export const ART = {
     },
     "cutucar-2": {
       "bytes": 13293
+    },
+    "passo-1": {
+      "bytes": 13293
+    },
+    "passo-2": {
+      "bytes": 13293
+    },
+    "dialogo": {
+      "bytes": 13293
+    },
+    "golpe": {
+      "bytes": 49581
+    },
+    "criatura-desfaz": {
+      "bytes": 121581
+    },
+    "diario": {
+      "bytes": 97389
+    },
+    "amuleto": {
+      "bytes": 73197
+    },
+    "mapa": {
+      "bytes": 97389
+    },
+    "banco": {
+      "bytes": 97389
     }
   }
 } as const;

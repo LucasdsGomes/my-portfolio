@@ -11,7 +11,7 @@ type Filter = ProjectCategory | 'all';
 
 const CATEGORY_ORDER: readonly ProjectCategory[] = [
   'ia-agentes',
-  'dados-iot',
+  'sites-sistemas',
   'automacao',
   'dashboards',
   'estudos',

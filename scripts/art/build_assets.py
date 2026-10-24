@@ -194,6 +194,17 @@ AUDIO = {
     'pouso.mp3': 'pouso.mp3',
     'cutucar.mp3': 'cutucar-1.mp3',
     'cutucar2.mp3': 'cutucar-2.mp3',
+    # os que ainda podem chegar: se faltarem, o site só não toca aquele som
+    'passo-1.mp3': 'passo-1.mp3',
+    'passo-2.mp3': 'passo-2.mp3',
+    'dialogo.mp3': 'dialogo.mp3',
+    'golpe.mp3': 'golpe.mp3',
+    'criatura-desfaz.mp3': 'criatura-desfaz.mp3',
+    'diario.mp3': 'diario.mp3',
+    'amuleto.mp3': 'amuleto.mp3',
+    'mapa.mp3': 'mapa.mp3',
+    'banco.mp3': 'banco.mp3',
+    'tema-das-galerias.mp3': 'musica-galerias.mp3',
 }
 
 
@@ -202,8 +213,9 @@ def main() -> None:
 
     (OUT / 'audio').mkdir(parents=True, exist_ok=True)
     for source, target in AUDIO.items():
-        path = SRC / 'musica' / source
-        if not path.exists():
+        # música em musica/, efeitos em sons/: tanto faz onde o arquivo caiu
+        path = next((SRC / d / source for d in ('musica', 'sons') if (SRC / d / source).exists()), None)
+        if path is None:
             print('áudio ausente', source)
             continue
         (OUT / 'audio' / target).write_bytes(path.read_bytes())

@@ -1,5 +1,7 @@
 'use client';
 
+import { ART } from '../art/assets.generated';
+
 /**
  * Som do jogo: uma música de fundo por região e efeitos curtos.
  *
@@ -16,10 +18,26 @@
  * volta de MP3, por causa do silêncio que o formato embute nas pontas.
  */
 
-export type Sfx = 'menu-mover' | 'menu-confirmar' | 'regiao' | 'pulo' | 'pouso' | 'cutucar';
-export type Track = 'floresta' | 'abismo';
+export type Sfx =
+  | 'menu-mover'
+  | 'menu-confirmar'
+  | 'regiao'
+  | 'pulo'
+  | 'pouso'
+  | 'cutucar'
+  | 'passo'
+  | 'dialogo'
+  | 'golpe'
+  | 'criatura-desfaz'
+  | 'diario'
+  | 'amuleto'
+  | 'mapa'
+  | 'banco';
+export type Track = 'floresta' | 'galerias' | 'abismo';
 
 const STORAGE_KEY = 'lg-som';
+/** só os arquivos que o pipeline publicou: pedir o resto daria 404 no console */
+const AVAILABLE = new Set<string>(Object.keys(ART.audio));
 const MUSIC_VOLUME = 0.42;
 const FADE = 1.6;
 
@@ -31,6 +49,14 @@ const SFX_FILES: Record<Sfx, string[]> = {
   pouso: ['pouso'],
   // o som mais tocado alterna entre duas versões para não cansar
   cutucar: ['cutucar-1', 'cutucar-2'],
+  passo: ['passo-1', 'passo-2'],
+  dialogo: ['dialogo'],
+  golpe: ['golpe'],
+  'criatura-desfaz': ['criatura-desfaz'],
+  diario: ['diario'],
+  amuleto: ['amuleto'],
+  mapa: ['mapa'],
+  banco: ['banco'],
 };
 
 const SFX_VOLUME: Record<Sfx, number> = {
@@ -40,10 +66,20 @@ const SFX_VOLUME: Record<Sfx, number> = {
   pulo: 0.4,
   pouso: 0.35,
   cutucar: 0.55,
+  passo: 0.22,
+  dialogo: 0.3,
+  golpe: 0.5,
+  'criatura-desfaz': 0.45,
+  diario: 0.45,
+  amuleto: 0.45,
+  mapa: 0.35,
+  banco: 0.5,
 };
 
+// a trilha das galerias é opcional: se o arquivo não existir, a floresta segue tocando
 const TRACK_FILES: Record<Track, string> = {
   floresta: 'musica-floresta',
+  galerias: 'musica-galerias',
   abismo: 'musica-abismo',
 };
 
@@ -65,6 +101,7 @@ const listeners = new Set<() => void>();
 const emit = () => listeners.forEach((fn) => fn());
 
 function load(name: string): Promise<AudioBuffer | null> {
+  if (!AVAILABLE.has(name)) return Promise.resolve(null);
   let pending = buffers.get(name);
   if (!pending) {
     pending = fetch(`/game/audio/${name}.mp3`)

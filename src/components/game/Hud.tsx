@@ -3,6 +3,8 @@
 import { useEffect, useRef } from 'react';
 import type { GameRegionId, Locale, PortfolioContent } from '@/types/portfolio';
 import { alternateLocale, pathForLocale, textPathForLocale } from '@/content';
+import { JOURNEY_RESET } from './journey/events';
+import { FireflyFace } from './rig/FireflyFace';
 
 /** Região do jogo → id da seção na página (os mesmos da versão em texto). */
 const REGION_SECTIONS: Readonly<Record<GameRegionId, string>> = {
@@ -68,12 +70,18 @@ export function Hud({ content, locale }: HudProps) {
       if (section) observer.observe(section);
     }
 
+    const onReset = () => {
+      root.querySelectorAll<HTMLElement>('[data-orb]').forEach((orb) => delete orb.dataset.lit);
+    };
+
     read();
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener(JOURNEY_RESET, onReset);
     return () => {
       cancelAnimationFrame(frame);
       observer.disconnect();
       window.removeEventListener('scroll', onScroll);
+      window.removeEventListener(JOURNEY_RESET, onReset);
     };
   }, []);
 
@@ -83,6 +91,11 @@ export function Hud({ content, locale }: HudProps) {
       data-shown="false"
       className="hud pointer-events-none fixed inset-x-0 top-0 z-40 flex items-start justify-between px-4 pt-4 sm:px-6 sm:pt-5"
     >
+      {/* véu: o texto que rola por baixo não briga com os links do HUD */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 -z-10 h-28 bg-[linear-gradient(rgba(3,6,14,0.85),rgba(3,6,14,0.5)_55%,transparent)]"
+      />
       <div aria-hidden="true" className="flex items-center gap-3">
         <div className="relative size-16">
           <svg viewBox="0 0 68 68" className="absolute inset-0 -rotate-90">
@@ -101,16 +114,8 @@ export function Hud({ content, locale }: HudProps) {
               className="drop-shadow-[0_0_4px_rgba(253,208,95,0.8)]"
             />
           </svg>
-          {/* eslint-disable-next-line @next/next/no-img-element -- retrato decorativo do HUD */}
-          <img
-            src="/game/vagalume/head.webp"
-            alt=""
-            width={377}
-            height={304}
-            className="absolute top-[-28px] left-[3px] w-[110px] max-w-none"
-            /* recorta só a esfera da cabeça, com o olho, dentro do anel */
-            style={{ clipPath: 'circle(25px at 29px 60px)' }}
-          />
+          {/* o rosto do vagalume, o mesmo do ícone da aba, dentro do anel */}
+          <FireflyFace className="absolute inset-[5px] -translate-y-0.5" />
         </div>
         <div className="flex gap-1.5">
           {REGIONS.map((region) => (

@@ -42,18 +42,16 @@ export function ProfileRegion({ content }: ProfileRegionProps) {
         <RegionCard id="perfil-title" region={game.regions.profile} />
 
         <div className="mt-16 grid items-end gap-10 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-6">
-          {/* o vagalume pousado numa pedra, olhando para quem lê */}
+          {/* o vagalume sobre a própria luz, olhando para quem lê */}
           <div className="mx-auto flex w-40 flex-col items-center lg:w-full">
             <PlayerFirefly
               anchor="perfil"
               label={game.firefly.poke}
               range={GROUND_RANGE}
               ground="[data-ground]"
-              className="relative z-20 h-52 lg:h-64"
+              greet
+              className="relative z-20 h-36 lg:h-44"
             />
-            <svg viewBox="0 0 200 40" className="-mt-4 w-40 lg:w-48" aria-hidden="true" focusable="false">
-              <path d="M8 40 C 20 12, 60 4, 104 6 C 150 8, 186 18, 196 40 Z" fill="#01050b" />
-            </svg>
           </div>
 
           <Dialogue speaker={game.dialogue.speaker} lines={lines} labels={game.dialogue} />
